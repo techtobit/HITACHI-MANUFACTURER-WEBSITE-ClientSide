@@ -1,40 +1,56 @@
 import React, { useState } from 'react';
-import { useAuthState, useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useAuthState, useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import singUp from '../../../assets/Login/logIn.png'
+import ReactReloadSpinier from '../../Animation/ReactReloadSpinier';
 
 const SingUp = () => {
  // react form 
  const { register, handleSubmit, watch, formState: { errors } } = useForm();
- const [user, loading, error] = useAuthState(auth);
-
+ const [updateProfile, updating, updateError] = useUpdateProfile(auth);
  const navigate = useNavigate()
  // SingIn With Email Passwrod 
  const [
   createUserWithEmailAndPassword,
-  Euser,
-  Eloading,
-  Eerror,
+  user,
+  loading,
+  error,
  ] = useCreateUserWithEmailAndPassword(auth);
- const onSubmit = data => {
+
+
+ const onSubmit = async data => {
   const email = data.email;
   const password = data.password;
-  createUserWithEmailAndPassword(email, password)
-  console.log(email, password);
- }
+  await createUserWithEmailAndPassword(email, password)
+  await updateProfile({ displayName: data.name });
 
- if (user) {
-  navigate('/home')
  }
 
 
  // SingIn With Google 
- const [singWithGoogle, Guser, Gloading] = useSignInWithGoogle(auth);
+ const [singWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
  const loginWithGoogle = () => {
   singWithGoogle()
   navigate('/')
+ }
+
+ let signInError;
+ if (user) {
+  navigate('/products')
+ }
+
+ if (loading || gLoading || updating) {
+  return <ReactReloadSpinier></ReactReloadSpinier>
+ }
+
+ if (error || gError || updateError) {
+  signInError = <p className='text-red-500'><small>{error?.message || gError?.message || updateError?.message}</small></p>
+ }
+
+ if (user || gUser) {
+  console.log(user || gUser);
  }
 
  return (
@@ -49,6 +65,22 @@ const SingUp = () => {
        <h1 class="text-5xl font-bold">Create An Account</h1>
 
        <form onSubmit={handleSubmit(onSubmit)} class="form-control">
+        <label className="label">
+         <span className="label-text">Name</span>
+        </label>
+        <input
+         type="text"
+         placeholder="Full Name" className="input input-bordered w-full max-w-xs"{...register("name", {
+          required: {
+           value: true,
+           message: 'Name is Required'
+          }
+         })}
+        />
+        <label className="label">
+         {errors.name?.type === 'required' && <span className="label-text-alt text-red-600">{errors.name.message}</span>}
+        </label>
+
         <label class="label">
          <span class="label-text">Email</span>
         </label>
@@ -87,6 +119,8 @@ const SingUp = () => {
          {errors.password?.type === 'minLength' && <span className='label-text-alt text-red-600'>{errors.password.message}</span>}
 
         </label>
+
+        {signInError}
 
         <label class="label">
          <Link to='/resetPass' class="label-text-alt link link-hover">Forgot password?</Link>

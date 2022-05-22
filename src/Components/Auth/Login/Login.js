@@ -1,23 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useAuthState, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import LoginImg from '../../../assets/Login/logIn.png'
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import ReactReloadSpinier from '../../Animation/ReactReloadSpinier';
 
 
 const Login = () => {
  const { register, handleSubmit, formState: { errors } } = useForm();
- const [user, loading, error] = useAuthState(auth);
- const navigate = useNavigate()
- // login with email password 
- const [
-  signInWithEmailAndPassword,
-  Euser,
-  Eloading,
-  Eerror,
- ] = useSignInWithEmailAndPassword(auth);
+
+ // login with google 
+ const [singWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+ const loginWithGoogle = () => {
+  singWithGoogle()
+ }
+
+ // login with email 
+ const [signInWithEmailAndPassword, user, loading, error,] = useSignInWithEmailAndPassword(auth);
  const onSubmit = data => {
   const email = data.email;
   const password = data.password;
@@ -25,15 +26,31 @@ const Login = () => {
   console.log(email, password);
  }
 
- // login with google 
- const [singWithGoogle, guser, gloading] = useSignInWithGoogle(auth);
- const loginWithGoogle = () => {
-  singWithGoogle()
+
+
+ //Remainder last route
+ let signInError;
+ const navigate = useNavigate();
+ const location = useLocation();
+ let from = location.state?.from?.pathname || "/";
+
+ useEffect(() => {
+  if (user || gUser) {
+   navigate(from, { replace: true });
+  }
+ }, [user, gUser, from, navigate])
+
+ if (loading || gLoading) {
+  return <ReactReloadSpinier></ReactReloadSpinier>
  }
 
- if (user) {
-  navigate('/')
+ if (error || gError) {
+  signInError = <p className='text-red-500'><small>{error?.message || gError?.message}</small></p>
  }
+
+
+
+
 
 
  return (
@@ -93,7 +110,7 @@ const Login = () => {
          <input type='submit' value="login" class="btn btn-primary" />
         </div>
        </form>
-
+       {signInError}
        <label class="label">
         <p className='label-text-alt'>Don't have an account? <Link to='/singUp' class="label-text-alt link link-hover underline text-neutral font-bold text-md">Create an account</Link></p>
        </label>

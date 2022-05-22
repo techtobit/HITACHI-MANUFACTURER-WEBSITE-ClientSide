@@ -6,13 +6,14 @@ import { Link } from 'react-router-dom';
 const HeroBanner = () => {
 
  return (
-  <div className='hero-banner' style={{
+  <div className='hero-banner h-screen grid items-center align-center' style={{
    backgroundImage: 'url("https://i.ibb.co/44Hvh4k/hero-banner-0.jpg")',
    // backgroundColor: 'rgba(0,0,0,0.5)',
+   backgroundSize: 'cover'
 
 
   }}>
-   <div className='home-section gird grid-cols-1 w-1/2 pt-20 text-secondary'>
+   <div className='home-section w-2/4 grid text-secondary'>
     <div className="home-title grid pl-10">
      <h1 className="main-title lg:text-7xl md:text-5xl  md:text-4xl font-bold ">
       Ostromi Hand Tools

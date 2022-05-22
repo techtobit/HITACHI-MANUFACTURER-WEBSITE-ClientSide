@@ -1,0 +1,43 @@
+import React, { useEffect, useState } from 'react';
+import './DisplayProduct.css'
+
+const DisplayProducts = ({ product }) => {
+ const { _id, name, img, price, quantity } = product;
+
+ const [style, setStyle] = useState({ display: 'none' });
+
+
+ return (
+  <div>
+   <div class="card lg:w-80 md:w-fit bg-base-100 shadow-xl"
+    onMouseEnter={e => {
+     setStyle({
+      display: 'block',
+      text: 'center',
+      transition: "delay: 1s",
+      // transition: '0.3s'
+     });
+    }}
+    onMouseLeave={e => {
+     setStyle({
+      display: 'none',
+      transition: '0.3s'
+     })
+    }}>
+    <figure className=''><img className='product-img' src={img} alt="product" /></figure>
+    <div class="card-body">
+     <h3 class="card-title">{name}</h3>
+     <div className="card-data grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-2">
+      <div class="badge badge-primary text-neutral font-bold">Price : ${price}</div>
+      <div class="badge badge-accent text-neutral font-bold border-1 border-primary">Stock: ${quantity}</div>
+     </div>
+     <div class="card-actions w-full lg:justify-center py-2 " style={style} >
+      <div class="btn btn-primary w-full text-neutral font-bold">Add To Cart</div>
+     </div>
+    </div>
+   </div>
+  </div>
+ );
+};
+
+export default DisplayProducts;

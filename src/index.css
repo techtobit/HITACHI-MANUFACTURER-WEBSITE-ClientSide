@@ -16,3 +16,15 @@ code {
   font-family: 'Poppins',
     sans-serif;
 }
+
+h2 {
+  font-size: 30px !important;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+span {
+  color: #fdb913;
+  font-size: 15px;
+}

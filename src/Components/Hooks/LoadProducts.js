@@ -1,7 +1,5 @@
 
 import { useEffect, useState } from 'react';
-
-
 const LoadProducts = () => {
  const [products, setProducts] = useState([]);
  useEffect( () => {

@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
 import React, { useEffect, useState } from 'react';
 import './DisplayProduct.css'
 
@@ -8,7 +10,7 @@ const DisplayProducts = ({ product }) => {
 
 
  return (
-  <div>
+  <div >
    <div class="card lg:w-80 md:w-fit bg-base-100 shadow-xl"
     onMouseEnter={e => {
      setStyle({
@@ -32,7 +34,9 @@ const DisplayProducts = ({ product }) => {
       <div class="badge badge-accent text-neutral font-bold border-1 border-primary">Stock: ${quantity}</div>
      </div>
      <div class="card-actions w-full lg:justify-center py-2 " style={style} >
-      <div class="btn btn-primary w-full text-neutral font-bold">Add To Cart</div>
+      <div class="btn btn-primary w-full text-neutral font-bold">
+       <FontAwesomeIcon icon={faCartArrowDown} className='text pr-2'></FontAwesomeIcon>
+       Place Oder</div>
      </div>
     </div>
    </div>

@@ -1,15 +1,23 @@
 import React from 'react';
+import { Route, Router, Routes } from 'react-router-dom';
 import Home from './Components/Home/Home';
 import LoadProducts from './Components/Hooks/LoadProducts';
 import Footer from './Components/Shared/Footer/Footer';
 import NavBars from './Components/Shared/NavBars/NavBars';
+import Login from './Components/Auth/Login/Login'
+import SingUp from './Components/Auth/SingUp/SingUp'
 
 
 const App = () => {
   return (
     <div>
       <NavBars></NavBars>
-      <Home></Home>
+      <Routes>
+        <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/home' element={<Home></Home>}></Route>
+        <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/singup' element={<SingUp></SingUp>}></Route>
+      </Routes>
       <Footer></Footer>
     </div>
   );

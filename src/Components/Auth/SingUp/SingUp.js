@@ -1,51 +1,52 @@
-import React from 'react';
-import { useAuthState, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import LoginImg from '../../../assets/Login/logIn.png'
-import { useForm } from "react-hook-form";
+import React, { useState } from 'react';
+import { useAuthState, useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import singUp from '../../../assets/Login/logIn.png'
 
-
-const Login = () => {
- const { register, handleSubmit, formState: { errors } } = useForm();
+const SingUp = () => {
+ // react form 
+ const { register, handleSubmit, watch, formState: { errors } } = useForm();
  const [user, loading, error] = useAuthState(auth);
+
  const navigate = useNavigate()
- // login with email password 
+ // SingIn With Email Passwrod 
  const [
-  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
   Euser,
   Eloading,
   Eerror,
- ] = useSignInWithEmailAndPassword(auth);
+ ] = useCreateUserWithEmailAndPassword(auth);
  const onSubmit = data => {
   const email = data.email;
   const password = data.password;
-  signInWithEmailAndPassword(email, password)
+  createUserWithEmailAndPassword(email, password)
   console.log(email, password);
  }
 
- // login with google 
- const [singWithGoogle, guser, gloading] = useSignInWithGoogle(auth);
+ if (user) {
+  navigate('/home')
+ }
+
+
+ // SingIn With Google 
+ const [singWithGoogle, Guser, Gloading] = useSignInWithGoogle(auth);
  const loginWithGoogle = () => {
   singWithGoogle()
- }
-
- if (user) {
   navigate('/')
  }
-
 
  return (
   <div>
    <div class="hero min-h-screen bg-accent">
-    <div class="hero-content grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 justify-between ">
+    <div class="hero-content flex flex-row-reverse justify-between ">
      <div class="text-center lg:text-left">
-      <img className='w-full lg:block md:block hidden' src={LoginImg} alt="" />
+      <img className='w-full lg:block md:block hidden' src={singUp} alt="" />
      </div>
      <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
       <div class="card-body">
-       <h1 class="text-5xl font-bold">Login now!</h1>
+       <h1 class="text-5xl font-bold">Create An Account</h1>
 
        <form onSubmit={handleSubmit(onSubmit)} class="form-control">
         <label class="label">
@@ -84,21 +85,22 @@ const Login = () => {
         <label className='label'>
          {errors.password?.type === 'required' && <span className='label-text-alt text-red-600'>{errors.password.message}</span>}
          {errors.password?.type === 'minLength' && <span className='label-text-alt text-red-600'>{errors.password.message}</span>}
+
         </label>
 
         <label class="label">
          <Link to='/resetPass' class="label-text-alt link link-hover">Forgot password?</Link>
         </label>
         <div class="form-control mt-6">
-         <input type='submit' value="login" class="btn btn-primary" />
+         <input type='submit' value="SingUp" class="btn btn-primary" />
         </div>
        </form>
 
        <label class="label">
-        <p className='label-text-alt'>Don't have an account? <Link to='/singUp' class="label-text-alt link link-hover underline text-neutral font-bold text-md">Create an account</Link></p>
+        <p className='label-text-alt'>Already have an account? <Link to='/login' class="label-text-alt link link-hover underline text-neutral font-bold text-md">Login your account</Link></p>
        </label>
        <div class="form-control mt-6">
-        <button onClick={loginWithGoogle} class="btn btn-neutral" >login With Google</button>
+        <button onClick={loginWithGoogle} class="btn btn-neutral" >SingUp With Google</button>
        </div>
       </div>
      </div>
@@ -108,4 +110,4 @@ const Login = () => {
  );
 };
 
-export default Login;
+export default SingUp;

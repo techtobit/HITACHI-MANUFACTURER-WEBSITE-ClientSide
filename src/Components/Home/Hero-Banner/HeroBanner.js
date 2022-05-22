@@ -1,0 +1,47 @@
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight, faRightToBracket } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+
+const HeroBanner = () => {
+
+ return (
+  <div className='hero-banner' style={{
+   backgroundImage: 'url("https://i.ibb.co/44Hvh4k/hero-banner-0.jpg")',
+   // backgroundColor: 'rgba(0,0,0,0.5)',
+
+
+  }}>
+   <div className='home-section gird grid-cols-1 w-1/2 pt-20 text-secondary'>
+    <div className="home-title grid pl-10">
+     <h1 className="main-title lg:text-7xl md:text-5xl  md:text-4xl font-bold ">
+      Ostromi Hand Tools
+      <br />
+      and Power Tools
+     </h1>
+     <p className="main-dis min-w-min py-1 lg:tex-3xl sm:text-xs">
+      From cutting to fastening, we carry quality Ostromi hand tools for any job
+     </p>
+     <div className="main-btns flex pl-0 p-10 justify-spacebetwn">
+      <button className="explore text-primary bg-secondary font-bold w-40 h-14 rounded ">
+       Get Start
+       <FontAwesomeIcon icon={faArrowRight} className='pl-2'></FontAwesomeIcon>
+      </button>
+      <div className="watch-btn pl-10 flex items-center justify-items-center ">
+       <button className="watch-video flex items-center  justify-items-center  ">
+        <div className='play-btn '>
+         <FontAwesomeIcon icon={faRightToBracket} className='play-icon'></FontAwesomeIcon>
+        </div>
+        <Link to='/login' className='font-bold pl-3'>LogIn</Link>
+       </button>
+      </div>
+     </div>
+    </div>
+
+
+   </div>
+  </div>
+ );
+};
+
+export default HeroBanner;

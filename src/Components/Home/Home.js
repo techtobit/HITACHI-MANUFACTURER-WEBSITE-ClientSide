@@ -3,6 +3,7 @@ import CompanyInfo from './CompanyInfo';
 import HeroBanner from './Hero-Banner/HeroBanner';
 import Products from './Products/Products';
 import Innovation from './ProductsPromotion/Innovation';
+import Subscribe from './Subscribe/Subscribe';
 
 const Home = () => {
  return (
@@ -11,6 +12,7 @@ const Home = () => {
    <Innovation></Innovation>
    <Products></Products>
    <CompanyInfo></CompanyInfo>
+   <Subscribe></Subscribe>
   </div>
  );
 };

@@ -18,7 +18,6 @@ const NavBars = () => {
     <li><Link to='/'>Home</Link></li>
     <li><Link to='/products'>Products</Link></li>
     <li><Link to='/blog'>Blog</Link></li>
-    <li><Link to='/profile'>Profile</Link></li>
   </>
   const userMenu = <>
     {
@@ -31,8 +30,8 @@ const NavBars = () => {
                 {user.displayName}
                 <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
               </a>
-              <ul class="p-2 bg-base-100">
-                <li><Link to='/account'>My Account</Link></li>
+              <ul class="p-2 bg-base-100  z-10">
+                <li><Link to='profile'>My Account</Link></li>
                 <li><Link to='/dashboard'>Dashboard</Link></li>
                 <li><Link to='/' onClick={() => signOut(auth)}>LogOut
                   <FontAwesomeIcon icon={faRightFromBracket} className='text-primary px-2'></FontAwesomeIcon>

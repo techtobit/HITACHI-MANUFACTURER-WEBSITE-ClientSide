@@ -9,6 +9,12 @@ import RequireAuth from './Components/Auth/RequireAuth/RequireAuth';
 import AllProducts from './Components/Pages/Products/AllProducts';
 import CheckedProduct from './Components/Pages/CheckedProduct/CheckedProduct';
 import Dashboard from './Components/Pages/Dashboard/Dashboard';
+import Review from './Components/Pages/Dashboard/Review';
+import Orders from './Components/Pages/Dashboard/Orders';
+import Profile from './Components/Pages/Dashboard/Profile';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import AddrForPurchase from './Components/Shared/PurchaseProduct/AddrForPurchase';
 
 
 // import MinNavBars from './Components/Shared/NavBars/MinNavBars';
@@ -30,18 +36,24 @@ const App = () => {
           <RequireAuth>
             <CheckedProduct></CheckedProduct>
           </RequireAuth>
-        }></Route>
+        }>
+        </Route>
+        <Route path='/addAdders' element={<AddrForPurchase></AddrForPurchase>}></Route>
         <Route path='/dashboard' element={
           <RequireAuth>
             <Dashboard></Dashboard>
           </RequireAuth>
         }>
-
+          <Route index element={<Orders></Orders>}></Route>
+          <Route path='review' element={<Review></Review>}></Route>
+          <Route path='profile' element={<Profile></Profile>}></Route>
         </Route>
+
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/singup' element={<SingUp></SingUp>}></Route>
       </Routes>
       <Footer></Footer>
+      <ToastContainer />
     </div>
   );
 };

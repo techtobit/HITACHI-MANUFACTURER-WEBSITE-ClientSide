@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AddReview = ({ item }) => {
- const { img, name, quantity, total } = item;
+ const { img, name, position, quantity, total } = item;
  return (
   <tbody>
    <tr>
@@ -13,6 +13,7 @@ const AddReview = ({ item }) => {
      </div>
     </td>
     <td>{name}</td>
+    <td>{position}</td>
     <td>Ordered : {quantity}</td>
     <td>Total Price :{total}</td>
     <td>

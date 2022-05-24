@@ -15,6 +15,7 @@ import Profile from './Components/Pages/Dashboard/Profile';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AddrForPurchase from './Components/Shared/PurchaseProduct/AddrForPurchase';
+import OrderPayment from './Components/Shared/Payment/OrderPayment';
 
 
 // import MinNavBars from './Components/Shared/NavBars/MinNavBars';
@@ -46,6 +47,7 @@ const App = () => {
         }>
           <Route index element={<Orders></Orders>}></Route>
           <Route path='review' element={<Review></Review>}></Route>
+          <Route path='review/:payment' element={<OrderPayment></OrderPayment>}></Route>
           <Route path='profile' element={<Profile></Profile>}></Route>
 
         </Route>

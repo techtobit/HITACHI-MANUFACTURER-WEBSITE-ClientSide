@@ -5,6 +5,7 @@ import CheckProducts from '../../Hooks/CheckProducts';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
+import { data } from 'autoprefixer';
 
 const CheckedProduct = () => {
   const [checkProduct] = CheckProducts();
@@ -52,14 +53,17 @@ const CheckedProduct = () => {
       setPurchase(product)
       axios.post(url, product)
         .then(response => {
-          console.log(response)
-          toast.success('Product Successfully Add')
-          setCartPrice(0)
+          if (response.data.success) {
+            toast.success('Product Successfully Add')
+            setCartPrice(0)
+          }
+          else {
+            toast.error('This Product Already Add')
+          }
+
         })
     }
-    else {
-      toast.error('Action Failed')
-    }
+
   }
 
 
@@ -133,7 +137,7 @@ const CheckedProduct = () => {
             </div>
             <div className=''>
               <label className='text-xl pr-2  font-bold '>Total</label>
-              <input readOnly value={cartPrice} className="input px-5 input-bordered text-green-600 text-xl font-bold input-sm w-28 max-w-xs" />
+              <input readOnly value={cartPrice} className="input px-5  text-green-600 text-xl font-bold input-sm w-28 max-w-xs" />
             </div>
 
             <div className='lg:flex md:flex'>

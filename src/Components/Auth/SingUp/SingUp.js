@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuthState, useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import singUp from '../../../assets/Login/logIn.png'
 import ReactReloadSpinier from '../../Animation/ReactReloadSpinier';
+import useToken from '../../Hooks/useToken';
 
 const SingUp = () => {
  // react form 
@@ -19,7 +20,6 @@ const SingUp = () => {
   error,
  ] = useCreateUserWithEmailAndPassword(auth);
 
-
  const onSubmit = async data => {
   const email = data.email;
   const password = data.password;
@@ -28,18 +28,20 @@ const SingUp = () => {
 
  }
 
-
  // SingIn With Google 
  const [singWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
  const loginWithGoogle = () => {
   singWithGoogle()
-  navigate('/')
  }
 
+ const [token] = useToken(user || gUser)
+
  let signInError;
- if (user) {
-  navigate('/products')
- }
+
+  if (token) {
+   // navigate('/')
+  }
+
 
  if (loading || gLoading || updating) {
   return <ReactReloadSpinier></ReactReloadSpinier>

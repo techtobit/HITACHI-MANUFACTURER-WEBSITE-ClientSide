@@ -15,7 +15,7 @@ import Profile from './Components/Pages/Dashboard/Profile';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AddrForPurchase from './Components/Shared/PurchaseProduct/AddrForPurchase';
-import OrderPayment from './Components/Shared/Payment/OrderPayment';
+import Payment from './Components/Pages/Dashboard/Payment';
 
 
 // import MinNavBars from './Components/Shared/NavBars/MinNavBars';
@@ -39,7 +39,9 @@ const App = () => {
           </RequireAuth>
         }>
         </Route>
-        <Route path='/addAdders' element={<AddrForPurchase></AddrForPurchase>}></Route>
+        {/*         <Route path='/payment/:item' element={
+          <AddrForPurchase></AddrForPurchase>
+        }></Route> */}
         <Route path='/dashboard' element={
           <RequireAuth>
             <Dashboard></Dashboard>
@@ -47,8 +49,8 @@ const App = () => {
         }>
           <Route index element={<Orders></Orders>}></Route>
           <Route path='review' element={<Review></Review>}></Route>
-          <Route path='review/:payment' element={<OrderPayment></OrderPayment>}></Route>
           <Route path='profile' element={<Profile></Profile>}></Route>
+          <Route path='payment/:product' element={<Payment></Payment>}></Route>
 
         </Route>
         <Route path='/profile' element={<Profile></Profile>}></Route>

@@ -1,13 +1,16 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTruckFast, faDollarSign, faBoxOpen, faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faTruckFast, faDollarSign, faTrashCan, faCartShopping, faArrowRotateRight, faStarHalfStroke } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import Modal from '../../Shared/Modal/Modal';
+import { Link, useNavigate } from 'react-router-dom';
 
 const CustomizeOrders = ({ item, setDeleteCart }) => {
-  const { img, name, price, position, quantity, total } = item;
+  const { _id, img, name, price, position, quantity, total } = item;
+  const navigate = useNavigate();
+
+  const handelPayment = id => {
+    navigate(`payment/${id}`)
+  }
 
   return (
     <tbody className='overflow-x-auto '>
@@ -32,25 +35,31 @@ const CustomizeOrders = ({ item, setDeleteCart }) => {
         <td>
           {
             (position === "unpaid") &&
-            <label for="toggle-modal" onClick={() => setDeleteCart(item)} class="btn modal-button  btn-xs border-0 bg-accent text-red-600 hover:text-white hover:bg-red-500">Delete Cart</label>
+            <label for="toggle-modal" onClick={() => setDeleteCart(item)} class="btn modal-button  btn-xs border-0 bg-accent text-red-600 hover:text-white hover:bg-red-500">
+              <FontAwesomeIcon icon={faTrashCan} className='pr-2'></FontAwesomeIcon>
+              Cancel Order
+            </label>
           }
           {
             (position === "paid") && <Link to=''>
-              <button class="btn btn-xs border-0 bg-accent text-primary hover:text-white hover:bg-primary">Refund</button>
+              <button class="btn btn-xs border-0 bg-accent text-primary hover:text-white hover:bg-primary">
+                <FontAwesomeIcon icon={faArrowRotateRight} className='pr-2'></FontAwesomeIcon>
+                Refund</button>
             </Link>
           }
           {
             (position === "shipped") && <Link to='review'>
-              <button class="btn btn-xs btn-accent ">Add Review</button>
+              <button class="btn btn-xs btn-accent ">
+                <FontAwesomeIcon icon={faStarHalfStroke} className='pr-2'></FontAwesomeIcon>
+                Add Review</button>
             </Link>
           }
 
         </td>
         <td>
           {
-            (position === "unpaid") && <Link to='review/:payment'>
-              <button class="btn btn-xs border-0 bg-accent text-green-600 hover:text-white hover:bg-green-500">Payment</button>
-            </Link>
+            (position === "unpaid") &&
+            <button onClick={() => handelPayment(_id)} class="btn btn-xs border-0 bg-accent text-green-600 hover:text-white hover:bg-green-500">Payment</button>
           }
           {
             (position === "paid" || position === "shipped") &&

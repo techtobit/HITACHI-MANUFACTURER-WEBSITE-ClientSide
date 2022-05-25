@@ -12,6 +12,7 @@ const NavBars = () => {
   const LogOut = () => {
     signOut(auth)
     navigate('/')
+    localStorage.removeItem("accessToken")
   }
 
   const navMenu = <>
@@ -33,7 +34,7 @@ const NavBars = () => {
               <ul class="p-2 bg-base-100  z-10">
                 <li><Link to='profile'>My Account</Link></li>
                 <li><Link to='/dashboard'>Dashboard</Link></li>
-                <li><Link to='/' onClick={() => signOut(auth)}>LogOut
+                <li><Link to='/' onClick={LogOut}>LogOut
                   <FontAwesomeIcon icon={faRightFromBracket} className='text-primary px-2'></FontAwesomeIcon>
                 </Link></li>
               </ul>

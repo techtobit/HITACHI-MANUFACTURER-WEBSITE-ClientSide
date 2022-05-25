@@ -14,8 +14,12 @@ import Orders from './Components/Pages/Dashboard/Orders';
 import Profile from './Components/Pages/Dashboard/Profile';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import AddrForPurchase from './Components/Shared/PurchaseProduct/AddrForPurchase';
 import Payment from './Components/Pages/Dashboard/Payment';
+import Admin from './Components/Pages/Dashboard/Admin/Admin';
+import AdminProfile from './Components/Pages/Dashboard/Admin/AdminProfile';
+import MakeAdmin from './Components/Pages/Dashboard/Admin/MakeAdmin'
+import ManageAllOrders from './Components/Pages/Dashboard/Admin/ManageAllOrders';
+
 
 
 // import MinNavBars from './Components/Shared/NavBars/MinNavBars';
@@ -52,9 +56,14 @@ const App = () => {
           <Route path='profile' element={<Profile></Profile>}></Route>
           <Route path='payment/:product' element={<Payment></Payment>}></Route>
 
+          <Route path='admin' element={<Admin></Admin>}>
+            <Route path='adminProfile' element={<AdminProfile></AdminProfile>}></Route>
+            <Route path='makeAdmin' element={<MakeAdmin></MakeAdmin>}></Route>
+            <Route path='userOrders' element={<ManageAllOrders></ManageAllOrders>}></Route>
+          </Route>
         </Route>
-        <Route path='/profile' element={<Profile></Profile>}></Route>
 
+        <Route path='/profile' element={<Profile></Profile>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/singup' element={<SingUp></SingUp>}></Route>
       </Routes>

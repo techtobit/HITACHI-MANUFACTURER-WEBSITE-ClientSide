@@ -9,6 +9,7 @@ const Orders = () => {
 
  return (
   <div class="hero min-h-screen bg-accent ">
+
    <div class="overflow-x-auto">
     <table class="table w-full overflow-x-auto">
      <thead >

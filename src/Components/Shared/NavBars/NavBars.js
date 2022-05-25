@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightFromBracket, faUser, faBarChart } from '@fortawesome/free-solid-svg-icons';
+import siteLog from '../../../assets/siteLogo.png'
 const NavBars = () => {
   const [user, loading, error] = useAuthState(auth);
 
@@ -33,7 +34,7 @@ const NavBars = () => {
                 <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
               </a>
               <ul class="p-2 bg-base-100  z-10">
-                <li><Link to='profile'>My Account</Link></li>
+                <li><Link to='dashboard/admin/adminProfile'>My Account</Link></li>
                 <li><Link to='/dashboard'>Dashboard</Link></li>
                 <li><Link to='/' onClick={LogOut}>LogOut
                   <FontAwesomeIcon icon={faRightFromBracket} className='text-primary px-2'></FontAwesomeIcon>
@@ -57,7 +58,9 @@ const NavBars = () => {
             {navMenu}
           </ul>
         </div>
-        <a className=" normal-case text-xl">Tools</a>
+        <Link to='/' className=" normal-case text-xl">
+          <img className='lg:w-20 md:w-20 h' src={siteLog} alt="" /> 
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex lg:flex-end">
         <ul className="menu menu-horizontal p-0 ">

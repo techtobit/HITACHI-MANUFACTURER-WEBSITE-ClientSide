@@ -7,7 +7,7 @@ const Admin = () => {
  const [user] = useAuthState(auth)
 
  const adminMenu = <>
-  <li><Link to='adminProfile'>Profile</Link></li>
+  <li><Link to=''>Profile</Link></li>
   <li><Link to='makeAdmin'>Make Admin</Link></li>
   <li><Link to='userOrders'>Manage All Orders</Link></li>
   <li><Link to='addProduct'>Add A Product</Link></li>

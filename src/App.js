@@ -57,13 +57,13 @@ const App = () => {
           <Route path='payment/:product' element={<Payment></Payment>}></Route>
 
           <Route path='admin' element={<Admin></Admin>}>
-            <Route path='adminProfile' element={<AdminProfile></AdminProfile>}></Route>
+            <Route index element={<AdminProfile></AdminProfile>}></Route>
             <Route path='makeAdmin' element={<MakeAdmin></MakeAdmin>}></Route>
             <Route path='userOrders' element={<ManageAllOrders></ManageAllOrders>}></Route>
           </Route>
         </Route>
 
-        <Route path='/profile' element={<Profile></Profile>}></Route>
+        <Route path='/dashboard/admin/adminProfile' element={<Profile></Profile>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/singup' element={<SingUp></SingUp>}></Route>
       </Routes>

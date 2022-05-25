@@ -19,13 +19,17 @@ const HeroBanner = () => {
   }}>
    <div className='home-section w-2/4 grid text-secondary'>
     <div className="home-title grid pl-10">
-     <h1 className="main-title lg:text-7xl md:text-5xl  md:text-4xl font-bold ">
-      Ostromi Hand Tools
+     <h1 className="main-title lg:text-6xl md:text-5xl  md:text-5xl uppercase font-bold ">
+      Hitachi Social innovation
       <br />
-      and Power Tools
+      is powering good
      </h1>
-     <p className="main-dis min-w-min py-1 lg:tex-3xl sm:text-xs">
-      From cutting to fastening, we carry quality Ostromi hand tools for any job
+     <p className="main-dis min-w-min py-2 lg:tex-3xl sm:text-xs ">
+      Hitachi and Hitachi Astemo Developed Thin-type Inverter Technology for
+      <br />
+      EVs That is More Compact and Energy Efficient From cutting to fastening,
+      <br />
+      we carry quality Ostromi hand tools for any job
      </p>
      <div className="main-btns flex pl-0 p-10 justify-spacebetwn">
       <button className="explore text-primary bg-secondary font-bold w-40 h-14 rounded ">

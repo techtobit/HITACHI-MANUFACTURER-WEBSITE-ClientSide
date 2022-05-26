@@ -8,7 +8,7 @@ const Dashboard = () => {
  const [user] = useAuthState(auth);
  const [admin] = useAdmin(user);
  return (
-  <div class="drawer drawer-mobile top-100 border-t-2   items-start">
+  <div class="drawer drawer-mobile top-100 border-t-2 overflow-y-auto overflow-x-auto  items-start">
    <input id="dashboardSlider" type="checkbox" class="drawer-toggle" />
    <div class="drawer-content flex flex-col items-center justify-center pt-10">
     <Outlet></Outlet>

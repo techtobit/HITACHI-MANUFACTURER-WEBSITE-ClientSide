@@ -8,9 +8,13 @@ import auth from '../../../../firebase.init';
 import { useQuery } from 'react-query';
 import ReactReloadSpinier from '../../../Animation/ReactReloadSpinier';
 import { toast } from 'react-toastify';
+import DeleteModalAdmin from './Deleted/DeleteModalAdmin'
+
 
 const MakeAdmin = () => {
   const [users, setUsers] = useState([]);
+  const [deleteAdmin, setDeleteAdmin] = useState([]);
+  console.log(deleteAdmin);
   const navigate = useNavigate();
 
   // const { data: users, isLoading } = useQuery('users', () => fetch(`http://localhost:5000/user`, {
@@ -91,15 +95,12 @@ const MakeAdmin = () => {
       });
 
   }
-  const setDeleteCart = () => {
-
-  }
 
 
   // console.log("State Data", users);
 
   return (
-    <div class="hero min-h-screen bg-accent ">
+    <div class="hero min-h-screen bg-accent items-start ">
       <div class="overflow-x-auto">
         <table class="table w-full overflow-x-auto">
           <thead >
@@ -136,10 +137,14 @@ const MakeAdmin = () => {
                       Frizz Admin</button>
                   </td>
                   <td>
-                    <label for="toggle-modal" onClick={() => setDeleteCart(user)} class="btn modal-button  btn-xs border-0 bg-accent text-red-600 hover:text-white hover:bg-red-500">
+                    <label for="toggle-modal" onClick={() => setDeleteAdmin(user.email)} class="btn modal-button  btn-xs border-0 bg-accent text-red-600 hover:text-white hover:bg-red-500">
                       <FontAwesomeIcon icon={faTrashCan} className='pr-2'></FontAwesomeIcon>
                       Delete Admin
                     </label>
+                    {/*                     <button for="toggle-modal" onClick={() => handelDeleteAdmin(user._id)} class="btn modal-button  btn-xs border-0 bg-accent text-red-600 hover:text-white hover:bg-red-500">
+                      <FontAwesomeIcon icon={faTrashCan} className='pr-2'></FontAwesomeIcon>
+                      Delete Admin
+                    </button> */}
                   </td>
                 </tr>
               )
@@ -147,7 +152,7 @@ const MakeAdmin = () => {
           </tbody>
         </table>
 
-        {/* {deleteCart && <Modal deleteCart={deleteCart}></Modal>} */}
+        {deleteAdmin && <DeleteModalAdmin deleteAdmin={deleteAdmin}></DeleteModalAdmin>}
 
       </div>
     </div>

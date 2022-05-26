@@ -8,10 +8,9 @@ const Orders = () => {
  const [deleteCart, setDeleteCart] = useState(null);
 
  return (
-  <div class="hero min-h-screen bg-accent ">
-
-   <div class="overflow-x-auto">
-    <table class="table w-full overflow-x-auto">
+  <div class="hero min-h-screen bg-accent items-start overflow-y-auto">
+   <div class="overflow-x-auto overflow-y-auto">
+    <table class="table w-full overflow-x-auto overflow-y-auto">
      <thead >
       <tr>
        <th>Products</th>

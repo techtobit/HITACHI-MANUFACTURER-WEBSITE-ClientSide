@@ -13,7 +13,7 @@ const CustomizeOrders = ({ item, setDeleteCart }) => {
   }
 
   return (
-    <tbody className='overflow-x-auto '>
+    <tbody className='overflow-x-auto  overflow-y-auto'>
       <tr>
         <td>
           <div class="avatar">
@@ -25,13 +25,17 @@ const CustomizeOrders = ({ item, setDeleteCart }) => {
         <td>{name}</td>
         <td>
           <FontAwesomeIcon className='pr-2' icon={faTruckFast}></FontAwesomeIcon>
-          {position}</td>
+          {position}
+          </td>
         <td><FontAwesomeIcon className='pr-2' icon={faDollarSign}></FontAwesomeIcon>
-          {price}</td>
+          {price}
+          </td>
         <td><FontAwesomeIcon className='pr-2' icon={faCartShopping}></FontAwesomeIcon>
-          {quantity}</td>
+          {quantity}
+          </td>
         <td><FontAwesomeIcon className='pr-2' icon={faDollarSign}></FontAwesomeIcon>
-          {total}</td>
+          {total}
+          </td>
         <td>
           {
             (position === "unpaid") &&

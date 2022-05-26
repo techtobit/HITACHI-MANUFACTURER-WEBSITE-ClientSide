@@ -19,7 +19,9 @@ import Admin from './Components/Pages/Dashboard/Admin/Admin';
 import AdminProfile from './Components/Pages/Dashboard/Admin/AdminProfile';
 import MakeAdmin from './Components/Pages/Dashboard/Admin/MakeAdmin'
 import ManageAllOrders from './Components/Pages/Dashboard/Admin/ManageAllOrders';
-
+import RequireAdmin from './Components/Hooks/RequireAdmin'
+import PageNotFound from './Components/Pages/N404/PageNotFound';
+import AddOrderedItems from './Components/Hooks/AddOrderedItems';
 
 
 // import MinNavBars from './Components/Shared/NavBars/MinNavBars';
@@ -56,16 +58,22 @@ const App = () => {
           <Route path='profile' element={<Profile></Profile>}></Route>
           <Route path='payment/:product' element={<Payment></Payment>}></Route>
 
-          <Route path='admin' element={<Admin></Admin>}>
+          <Route path='admin' element={
+            <RequireAdmin>
+              <Admin></Admin>
+            </RequireAdmin>
+          }>
             <Route index element={<AdminProfile></AdminProfile>}></Route>
             <Route path='makeAdmin' element={<MakeAdmin></MakeAdmin>}></Route>
             <Route path='userOrders' element={<ManageAllOrders></ManageAllOrders>}></Route>
+            <Route path='addProduct' element={<AddOrderedItems></AddOrderedItems>}></Route>
           </Route>
         </Route>
 
         <Route path='/dashboard/admin/adminProfile' element={<Profile></Profile>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/singup' element={<SingUp></SingUp>}></Route>
+        <Route path='*' element={<PageNotFound></PageNotFound>}></Route>
       </Routes>
       <Footer></Footer>
       <ToastContainer />

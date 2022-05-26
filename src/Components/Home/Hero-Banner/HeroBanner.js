@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom';
 const HeroBanner = () => {
 
  return (
-  <div className='hero-banner h-screen grid items-center align-center' style={{
+  <div className='hero-banner h-screen grid items-center align-center'
+   style={{
    backgroundImage: 'url("https://i.ibb.co/44Hvh4k/hero-banner-0.jpg")',
    // backgroundImage: 'url("https://i.ibb.co/phqMLJk/hero-banner-1.png")',
    backgroundRepeat: 'no-repeat', backgroundPosition: 'center',

@@ -22,6 +22,7 @@ import ManageAllOrders from './Components/Pages/Dashboard/Admin/ManageAllOrders'
 import RequireAdmin from './Components/Hooks/RequireAdmin'
 import PageNotFound from './Components/Pages/N404/PageNotFound';
 import AddOrderedItems from './Components/Hooks/AddOrderedItems';
+import Blog from './Components/Pages/Blog/Blog';
 
 
 // import MinNavBars from './Components/Shared/NavBars/MinNavBars';
@@ -45,6 +46,7 @@ const App = () => {
           </RequireAuth>
         }>
         </Route>
+        <Route path='/blog' element={<Blog></Blog>}></Route>
         {/*         <Route path='/payment/:item' element={
           <AddrForPurchase></AddrForPurchase>
         }></Route> */}

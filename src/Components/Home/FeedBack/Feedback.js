@@ -6,29 +6,29 @@ import DisplayFeedback from './DisplayFeedback';
 
 const Feedback = () => {
 
- const [reviews, setReviews] = useState([]);
- useEffect(() => {
-  fetch(`http://localhost:5000/userReview`)
-   .then(res => res.json())
-   .then(data => setReviews(data))
- }, [])
- return (
-  <div className='py-20 bg-accent'>
-   <SubHeading>Feedback</SubHeading>
-   <SectionHeading>User Testimonial </SectionHeading>
-   <div className='grid grid-cols-3'>
-    {
-     reviews.map(review => <DisplayFeedback
-      key={review._id}
-      review={review}
-     ></DisplayFeedback>)
-    }
-   </div>
-   <div>
-    <SubHeading>See More</SubHeading>
-   </div>
-  </div>
- );
+  const [reviews, setReviews] = useState([]);
+  useEffect(() => {
+    fetch(`https://fierce-savannah-77217.herokuapp.com/userReview`)
+      .then(res => res.json())
+      .then(data => setReviews(data))
+  }, [])
+  return (
+    <div className='py-20 bg-accent'>
+      <SubHeading>Feedback</SubHeading>
+      <SectionHeading>User Testimonial </SectionHeading>
+      <div className='grid grid-cols-3'>
+        {
+          reviews.map(review => <DisplayFeedback
+            key={review._id}
+            review={review}
+          ></DisplayFeedback>)
+        }
+      </div>
+      <div>
+        <SubHeading>See More</SubHeading>
+      </div>
+    </div>
+  );
 };
 
 export default Feedback;

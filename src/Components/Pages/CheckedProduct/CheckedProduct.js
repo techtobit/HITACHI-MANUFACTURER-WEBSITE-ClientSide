@@ -67,7 +67,7 @@ const CheckedProduct = () => {
 
     if (cartPrice) {
       console.log(cartPrice);
-      const url = `http://localhost:5000/mycart`;
+      const url = `https://fierce-savannah-77217.herokuapp.com/mycart`;
       setCart(product)
       axios.post(url, product)
         .then(response => {

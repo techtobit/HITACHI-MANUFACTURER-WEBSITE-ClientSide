@@ -7,7 +7,7 @@ const DisplayFeedback = ({ review }) => {
    <div class="card card-compact w-96 flex">
     <div className='flex flex-col'>
      <p className='tex-2xl text-primary pl-5'>User : {review.userName}</p>
-     <p className='tex-md text-neutral pl-5'>Retting :{review.retting}</p>
+     <p className='tex-md text-neutral pl-5'>Retting : {review.retting}⭐ </p>
 
     </div>
    </div>

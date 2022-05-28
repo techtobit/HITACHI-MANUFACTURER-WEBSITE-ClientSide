@@ -12,7 +12,7 @@ const AddReviewModal = ({ item }) => {
 
   const [user] = useAuthState(auth)
   const reviewName = user?.displayName;
-  // const { item: product, isLoading } = useQuery('users', () => fetch(`http://localhost:5000/products/${item._id}`).then(res => res.json()))
+  // const { item: product, isLoading } = useQuery('users', () => fetch(`https://fierce-savannah-77217.herokuapp.com/products/${item._id}`).then(res => res.json()))
   // console.log( item);
   // if (isLoading) {
   //   return <ReactReloadSpinier></ReactReloadSpinier>
@@ -32,7 +32,7 @@ const AddReviewModal = ({ item }) => {
 
     console.log(myReview);
 
-    axios.post(`http://localhost:5000/userReview`, myReview)
+    axios.post(`https://fierce-savannah-77217.herokuapp.com/userReview`, myReview)
       .then(response => {
         console.log(response)
         toast.success(`Dear ${reviewName}.Thanks For your Review`);

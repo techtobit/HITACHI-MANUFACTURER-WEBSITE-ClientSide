@@ -39,7 +39,7 @@ const SingUp = () => {
  let signInError;
 
   if (token) {
-   // navigate('/')
+   navigate('/')
   }
 
 

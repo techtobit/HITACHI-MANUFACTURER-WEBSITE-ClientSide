@@ -10,7 +10,7 @@ const AddrForPurchase = () => {
 
  // const [addAddersCart, setAddAddresCart] = useState([]);
  // useEffect(() => {
- //  fetch(`http://localhost:5000/mycart/${item}`)
+ //  fetch(`https://fierce-savannah-77217.herokuapp.com/mycart/${item}`)
  //   .then(res => res.json())
  //   .then(data => setAddAddresCart(data));
  // }, [item])

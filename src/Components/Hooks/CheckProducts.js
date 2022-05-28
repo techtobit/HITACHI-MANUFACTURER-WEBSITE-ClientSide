@@ -11,7 +11,7 @@ const CheckProducts = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch(`http://localhost:5000/products/${product}`, {
+    fetch(`https://fierce-savannah-77217.herokuapp.com/products/${product}`, {
       method: "GET",
       headers: {
         "authorization": `Bearer ${localStorage.getItem("accessToken")}`

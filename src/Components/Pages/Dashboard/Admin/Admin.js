@@ -2,6 +2,7 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, Outlet } from 'react-router-dom';
 import auth from '../../../../firebase.init';
+import myAvatar from '../../../Assets/AboutMe/my-avatar.png'
 
 const Admin = () => {
  const [user] = useAuthState(auth)
@@ -9,8 +10,8 @@ const Admin = () => {
  const adminMenu = <>
   <li><Link to=''>Profile</Link></li>
   <li><Link to='makeAdmin'>Make Admin</Link></li>
-  <li><Link to='userOrders'>Manage All Orders</Link></li>
   <li><Link to='addProduct'>Add A Product</Link></li>
+  <li><Link to='userOrders'>Manage All Orders</Link></li>
   <li><Link to='manageProducts'>Manage Products</Link></li>
  </>
  return (
@@ -27,9 +28,9 @@ const Admin = () => {
      <div class="flex-1 px-2 mx-2  items-center">
       <div class="avatar items-center font-bold">
        <div class="w-10 rounded-full">
-        <img src="https://api.lorem.space/image/face?hash=92310" />
+        <img src={myAvatar} />
        </div>
-       <p className='pl-2 '>{user.displayName}</p>
+       <p className='pl-2 '>Ashraf Uddin</p>
       </div>
      </div>
      <div class="flex-none hidden lg:block">

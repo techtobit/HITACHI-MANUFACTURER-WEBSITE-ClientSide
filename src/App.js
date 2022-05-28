@@ -24,6 +24,8 @@ import PageNotFound from './Components/Pages/N404/PageNotFound';
 import AddOrderedItems from './Components/Hooks/AddOrderedItems';
 import Blog from './Components/Pages/Blog/Blog';
 import AddProduct from './Components/Pages/Dashboard/Admin/AddProduct';
+import About from './Components/Pages/Dashboard/Admin/About';
+
 
 
 // import MinNavBars from './Components/Shared/NavBars/MinNavBars';
@@ -67,10 +69,10 @@ const App = () => {
               <Admin></Admin>
             </RequireAdmin>
           }>
-            <Route index element={<AdminProfile></AdminProfile>}></Route>
+            <Route index element={<About></About>}></Route>
             <Route path='makeAdmin' element={<MakeAdmin></MakeAdmin>}></Route>
-            <Route path='userOrders' element={<ManageAllOrders></ManageAllOrders>}></Route>
             <Route path='addProduct' element={<AddProduct></AddProduct>}></Route>
+            <Route path='userOrders' element={<ManageAllOrders></ManageAllOrders>}></Route>
             <Route path='addProduct' element={<AddOrderedItems></AddOrderedItems>}></Route>
           </Route>
         </Route>

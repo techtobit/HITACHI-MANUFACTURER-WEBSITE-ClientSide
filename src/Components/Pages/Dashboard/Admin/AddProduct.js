@@ -8,10 +8,9 @@ const AddProduct = () => {
   const onSubmit = data => {
     const imgApiKey = '54c9f604b140c2e56e2b65138a3d3965';
     const img = data.img[0];
-
     const formData = new FormData();
-
     formData.append("image", img);
+    console.log(data);
 
     const url = `https://api.imgbb.com/1/upload?key=${imgApiKey}`
 
@@ -32,11 +31,13 @@ const AddProduct = () => {
             img: img
           }
 
-          axios.post(`http://localhost:5000/products`, product)
-            .then(response => {
-              console.log(response);
-              toast.success('New Product Successfully Add')
-            })
+          console.log(product);
+
+          // axios.post(`https://fierce-savannah-77217.herokuapp.com/products`, product)
+          //   .then(response => {
+          //     console.log(response);
+          //     toast.success('New Product Successfully Add')
+          //   })
         }
         console.log("fetch data", data);
       })

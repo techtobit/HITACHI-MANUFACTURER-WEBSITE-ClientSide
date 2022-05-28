@@ -7,7 +7,7 @@ const Modal = ({ deleteCart }) => {
   console.log(deleteCart);
 
   const handelDeleteCart = id => {
-    const url = `http://localhost:5000/mycart/${id}`
+    const url = `https://fierce-savannah-77217.herokuapp.com/mycart/${id}`
     axios.delete(url, id)
       .then(response => {
         console.log(response)

@@ -19,7 +19,7 @@ const CheckoutForm = ({ cart }) => {
   const { total, } = cart
 
   useEffect(() => {
-    fetch(`http://localhost:5000/create-payment-intent`, {
+    fetch(`https://fierce-savannah-77217.herokuapp.com/create-payment-intent`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

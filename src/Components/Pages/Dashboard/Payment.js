@@ -24,7 +24,7 @@ const Payment = () => {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/mycart/${product}`)
+    fetch(`https://fierce-savannah-77217.herokuapp.com/mycart/${product}`)
       .then(res => res.json())
       .then(data => setCart(data));
   }, [product])

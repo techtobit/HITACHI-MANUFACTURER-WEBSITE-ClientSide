@@ -23,6 +23,7 @@ import RequireAdmin from './Components/Hooks/RequireAdmin'
 import PageNotFound from './Components/Pages/N404/PageNotFound';
 import AddOrderedItems from './Components/Hooks/AddOrderedItems';
 import Blog from './Components/Pages/Blog/Blog';
+import AddProduct from './Components/Pages/Dashboard/Admin/AddProduct';
 
 
 // import MinNavBars from './Components/Shared/NavBars/MinNavBars';
@@ -45,6 +46,7 @@ const App = () => {
             <CheckedProduct></CheckedProduct>
           </RequireAuth>
         }>
+
         </Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
         {/*         <Route path='/payment/:item' element={
@@ -68,6 +70,7 @@ const App = () => {
             <Route index element={<AdminProfile></AdminProfile>}></Route>
             <Route path='makeAdmin' element={<MakeAdmin></MakeAdmin>}></Route>
             <Route path='userOrders' element={<ManageAllOrders></ManageAllOrders>}></Route>
+            <Route path='addProduct' element={<AddProduct></AddProduct>}></Route>
             <Route path='addProduct' element={<AddOrderedItems></AddOrderedItems>}></Route>
           </Route>
         </Route>

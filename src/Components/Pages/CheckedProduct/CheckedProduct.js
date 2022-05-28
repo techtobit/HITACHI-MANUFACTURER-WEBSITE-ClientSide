@@ -4,19 +4,32 @@ import React, { createContext, useEffect, useState } from 'react';
 import CheckProducts from '../../Hooks/CheckProducts';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 
-
+import { loadStripe } from '@stripe/stripe-js';
+import {
+  CardElement,
+  Elements,
+  useStripe,
+  useElements,
+} from '@stripe/react-stripe-js';
+import CheckoutForm from '../Dashboard/CheckoutForm';
+const stripePromise = loadStripe('pk_test_51L32KLCsQIHP5V5pO5zs1Mqu1tcstEOMngwtrtftvk3aUWXS91oilRcWhNEIK4vTTEZ6houmF4VijlGlGHI7FWEJ00jJLqyxcU');
 
 const CheckedProduct = () => {
   const [checkProduct] = CheckProducts();
+  const [user] = useAuthState(auth)
 
 
   const [input, setInput] = useState(0);
-  const [purchase, setPurchase] = useState(0);
+  const [cart, setCart] = useState(0);
   const [cartPrice, setCartPrice] = useState(0);
 
 
+  let id = checkProduct._id
   let price = parseInt(checkProduct.price);
   let quantity = parseInt(checkProduct.quantity);
   let order = parseInt(checkProduct.minOder);
@@ -25,7 +38,7 @@ const CheckedProduct = () => {
   const increaseQuantity = e => {
     let num = e.target.value;
     if (quantity >= num && order <= num) {
-      setInput(parseInt(num))
+      setInput(num)
     }
   }
   useEffect(() => {
@@ -33,26 +46,29 @@ const CheckedProduct = () => {
     setCartPrice(totalPrice)
   }, [input, price])
 
-  const dQuantity = n => {
-  }
-  const iQuantity = n => {
-  }
+  console.log(cartPrice);
 
 
-  const hadelAddtoCart = () => {
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
+  const onSubmit = data => {
 
     let product = {
+      user: data.name,
+      email: data.email,
+      phone: data.phone,
+      city: data.city,
+      address: data.address,
       name: checkProduct.name,
       img: checkProduct.img,
-      price: checkProduct.price,
-      quantity: input,
       total: cartPrice,
       position: position
     }
 
+
     if (cartPrice) {
+      console.log(cartPrice);
       const url = `http://localhost:5000/mycart`;
-      setPurchase(product)
+      setCart(product)
       axios.post(url, product)
         .then(response => {
           if (response.data.success) {
@@ -65,15 +81,13 @@ const CheckedProduct = () => {
 
         })
     }
-
   }
 
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const handelPayment = id => {
     navigate(`/payment/${id}`)
   }
-
 
 
 
@@ -83,55 +97,60 @@ const CheckedProduct = () => {
       {/* //product display here  */}
       <div class="hero min-h-screen bg-accent ">
         <div class="hero-content flex-col lg:flex-row ">
-          <img src={checkProduct.img} class="max-w-sm rounded-lg shadow-2xl" />
-          <div className='lg:px-20 '>
-            <div className=''>
-              <h1 class="text-5xl font-bold pb-2">{checkProduct.name}</h1>
+          <div className=' bg-accent '>
+            <img src={checkProduct.img} class="max-w-sm " />
+            <div className='py-5'>
+              <h1 class="text-3xl font-bold pb-2">{checkProduct.name}</h1>
               <h3 class="text-2xl font-bold">Price : <span className='text-2xl font-bold'>${checkProduct.price}</span></h3>
               <h4 class="text-xl  ">In Stock : <span className='text-xl '>{checkProduct.quantity}</span></h4>
               <h3 class="text-xl ">MinOrder : <span className='text-xl '>{checkProduct.minOder}</span></h3>
             </div>
+          </div>
+          <div className='lg:px-20 '>
+            <hr />
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <h1 class="text-2xl font-bold pb-2">Shipping Details</h1>
+              <hr />
 
-            <div>
-              <h4>Order quantity : </h4>
-              <div className="flex py-2">
+              <label class="label">
+                <span class="label-text">Name</span>
+              </label>
+              <input type="text" value={user?.displayName} readOnly  {...register("name", { required: true })} class="input bg-gray-200 input-bordered input-sm w-96 max-w-xs" />
+              <label class="label">
+                <span class="label-text">Email</span>
+              </label>
+              <input type="email" value={user?.email} readOnly {...register("email", { required: true })} class="input  bg-gray-200 input-bordered input-sm w-96 max-w-xs" />
 
-                <div className=''>
-                  <button onClick={iQuantity} class="btn bg-secondary border-0  btn-sm">
-                    <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
-                  </button>
-                </div>
-                <div className='pl-2' >
+              <label class="label">
+                <span class="label-text">phone number</span>
+              </label>
+              <input type="number" placeholder="(+880)1xxxxxx" {...register("phone", { required: true })} class="input input-bordered input-sm w-96 max-w-xs" />
+              <label class="label">
+                <span class="label-text">City</span>
+              </label>
+              <input type="text" placeholder="City" {...register("city", { required: true })} class="input input-bordered input-sm w-96 max-w-xs" />
+              <label class="label">
+                <span class="label-text">Warehouse Address</span>
+              </label>
+              <input type="text" placeholder="address" {...register("address", { required: true })} class="input input-bordered input-sm w-96 max-w-xs" />
+              <label class="label">
+                <span class="label-text font-bold">Order quantity</span>
+              </label>
+              <input type="number" min="0" onKeyUp={increaseQuantity} placeholder="quantity" {...register("quantity", { required: true })} class="input input-bordered input-sm w-96 max-w-xs" />
+              <label class="label">
+                <span class="label-text font-bold">You Pay</span>
+              </label>
+              <input type='number' value={cartPrice} readOnly {...register("total", { required: true })} class="input  bg-gray-200 input-bordered input-sm w-96 max-w-xs" />
 
-                  <input type="number" min="0" onKeyUp={increaseQuantity} class="input px-5 input-bordered input-sm w-28 max-w-xs" />
-                </div>
-                <label className='label'>
-                </label>
-                <div className='px-2'>
-                  <button onClick={dQuantity} class="btn bg-secondary border-0 btn-sm">
-                    <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon>
-                  </button>
-                </div>
+              <div className='pt-4'>
+                <button type='submit' disabled={!cartPrice && !input} class="btn btn-primary w-full">Add To Cart</button>
               </div>
-            </div>
-            <div className=''>
-              <label className='text-xl pr-2  font-bold '>Total</label>
-              <input readOnly value={cartPrice} className="input px-5  text-green-600 text-xl font-bold input-sm w-28 max-w-xs" />
-            </div>
-
-            <div className='lg:flex md:flex'>
-              <div className='py-2'>
-                <button class="btn btn-primary " onClick={hadelAddtoCart}>
-                  <FontAwesomeIcon icon={faCartPlus} className="px-2"></FontAwesomeIcon>
-                  Add To Cart</button>
-
-              </div>
-              <div className='py-2  lg:pl-4 sm:pl-4 pl-0'>
-                <button onClick={() => handelPayment(checkProduct._id)} class="btn btn-primary ">
-                  <FontAwesomeIcon icon={faMoneyCheckDollar} className="px-2"></FontAwesomeIcon>
-                  Purchase</button>
-              </div>
-
+            </form>
+            <div className='py-5'>
+              <h3 className='text-center font-bold text-xl py-3'>Make Payment</h3>
+              <Elements stripe={stripePromise}>
+                <CheckoutForm cart={cart} />
+              </Elements>
             </div>
           </div>
         </div>

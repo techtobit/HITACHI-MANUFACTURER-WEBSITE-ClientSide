@@ -26,16 +26,16 @@ const CustomizeOrders = ({ item, setDeleteCart }) => {
         <td>
           <FontAwesomeIcon className='pr-2' icon={faTruckFast}></FontAwesomeIcon>
           {position}
-          </td>
+        </td>
         <td><FontAwesomeIcon className='pr-2' icon={faDollarSign}></FontAwesomeIcon>
           {price}
-          </td>
+        </td>
         <td><FontAwesomeIcon className='pr-2' icon={faCartShopping}></FontAwesomeIcon>
           {quantity}
-          </td>
+        </td>
         <td><FontAwesomeIcon className='pr-2' icon={faDollarSign}></FontAwesomeIcon>
           {total}
-          </td>
+        </td>
         <td>
           {
             (position === "unpaid") &&

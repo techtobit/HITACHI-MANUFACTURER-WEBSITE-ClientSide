@@ -25,6 +25,7 @@ import AddOrderedItems from './Components/Hooks/AddOrderedItems';
 import Blog from './Components/Pages/Blog/Blog';
 import AddProduct from './Components/Pages/Dashboard/Admin/AddProduct';
 import About from './Components/Pages/Dashboard/Admin/About';
+import ManageProducts from './Components/Pages/Dashboard/Admin/ManageProducts';
 
 
 
@@ -73,7 +74,8 @@ const App = () => {
             <Route path='makeAdmin' element={<MakeAdmin></MakeAdmin>}></Route>
             <Route path='addProduct' element={<AddProduct></AddProduct>}></Route>
             <Route path='userOrders' element={<ManageAllOrders></ManageAllOrders>}></Route>
-            <Route path='addProduct' element={<AddOrderedItems></AddOrderedItems>}></Route>
+            <Route path='manage' element={<ManageProducts></ManageProducts>}></Route>
+            {/* <Route path='addProduct' element={<AddOrderedItems></AddOrderedItems>}></Route> */}
           </Route>
         </Route>
 

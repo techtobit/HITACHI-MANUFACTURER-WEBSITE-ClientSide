@@ -11,8 +11,8 @@ const Admin = () => {
   <li><Link to=''>Profile</Link></li>
   <li><Link to='makeAdmin'>Make Admin</Link></li>
   <li><Link to='addProduct'>Add A Product</Link></li>
+  <li><Link to='manage'>Manage Products</Link></li>
   <li><Link to='userOrders'>Manage All Orders</Link></li>
-  <li><Link to='manageProducts'>Manage Products</Link></li>
  </>
  return (
 

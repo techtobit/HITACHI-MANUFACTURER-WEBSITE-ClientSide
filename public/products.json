@@ -1,0 +1,119 @@
+[
+ {
+  "name": "Electric-Drill",
+  "dis" : "",
+  "price" : "250",
+  "quantity" : "20",
+  "minOder" : "5",
+  "img": "https://i.ibb.co/MgxCKdd/Electric-Drill-1.jpg"
+ },
+ {
+  "name": "Electrical-Wires",
+  "dis" : "",
+  "price" : "50",
+  "quantity" : "120",
+  "minOder": "100",
+  "img": " https://i.ibb.co/v1rgtsG/Electrical-Wires-2.jpg"
+ },
+ {
+  "name": "Power-Saw",
+  "dis" : "",
+  "quantity" : "90",
+  "price" : "600",
+  "minOder": "10",
+  "img": "https://i.ibb.co/5KCf7mk/Power-Saw-3.jpg"
+ },
+ {
+  "name": "Safety-Gloves",
+  "dis" : "",
+  "price" : "30",
+  "quantity" : "1500",
+  "minOder": "100+",
+  "img": "https://i.ibb.co/P4Lqnsv/Safety-Gloves-10.jpg"
+ },
+ {
+  "name": "Safety-Helmet",
+  "dis" : "",
+  "price" : "135",
+  "quantity" : "1200",
+  "minOder": "120+",
+  "img": "https://i.ibb.co/gSp4c70/Safety-Helmet-6.jpg"
+ },
+ {
+  "name": "Screwdriver-Pallet",
+  "dis" : "",
+  "price" : "125",
+  "quantity" : "1500",
+  "minOder": "130",
+  "img": "https://i.ibb.co/L9ZGRj5/Screwdriver-Pallet-8.jpg"
+ },
+ {
+  "name": "Storage-Box",
+  "dis" : "",
+  "price" : "185",
+  "quantity" : "500",
+  "minOder": "30",
+  "img": "https://i.ibb.co/0YWdXt3/Storage-Box-11.jpg"
+ },
+ {
+  "name": "Cargo-Crane",
+  "dis" : "",
+  "price" : "105",
+  "quantity" : "300",
+  "minOder": "12",
+  "img": "https://i.ibb.co/5F1L4FM/Cargo-Crane-5.jpg"
+ },
+ {
+  "name": "Chain-Saw",
+  "dis" : "",
+  "price" : "155",
+  "quantity" : "300",
+  "minOder": "8",
+  "img": "https://i.ibb.co/f2rg366/Chain-Saw-9.jpg"
+ },
+ {
+  "name": "Diesel-Generator",
+  "dis" : "",
+  "price" : "1050",
+  "quantity" : "300",
+  "minOder": "2",
+  "img": "https://i.ibb.co/R6P5Y5y/Diesel-Generator-12.jpg"
+ },
+ {
+  "name": "Digital-Multimeter",
+  "dis" : "",
+  "price" : "50",
+  "quantity" : "600",
+  "minOder": "20",
+  "img": "https://i.ibb.co/kqgkW28/Digital-Multimeter-4.jpg"
+ },
+ {
+  "name": "Electric Drill Pro",
+  "dis" : "",
+  "price" : "50",
+  "quantity" : "600",
+  "minOder": "20",
+  "img": "https://i.ibb.co/Yb2Jk6p/dill.webp"
+ },
+ {
+  "name": "Duct-Tape-7",
+  "dis" : "",
+  "price" : "5",
+  "quantity" : "2000",
+  "minOder": "100",
+  "img": "https://i.ibb.co/q581xYk/Duct-Tape-7.jpg"
+ }
+]
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

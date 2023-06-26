@@ -1,0 +1,19 @@
+.my-avatar img {
+ width: 150px;
+ height: 150px;
+ border-radius: 50%;
+ background-size: cover;
+
+}
+
+.icon {}
+
+.icon img {
+ width: 60px;
+ height: 60px;
+ background-color: white;
+ padding: 10px;
+ border-radius: 10px;
+ box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+}

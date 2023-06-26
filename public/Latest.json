@@ -1,0 +1,23 @@
+How will you improve the performance of a React Application ?
+
+There are many method to optimize and improve react applications.
+Here are the most popuar way & method people used.
+1.Use component state were it needed.
+2.Avoide Unnecessary re-rendering
+3.Use Production Build chrome extinction
+4.use loading
+
+ What are the different ways to manage a state in a React application ?
+
+ In react js there are 4(four) ways to manage a state.
+
+ 01 - Local State.Data are mange in one or another component.ex - useState()
+ 02 - Gobal State.Data can use and mange multiple components.
+ 03 - Server State - Data use from external server.
+ 04 - URL state - use with our pathname and parameters
+
+
+ How does prototypical inheritance work ?
+ Prototypical is a javascript object hidden internal property.
+ when we cteate a javascript function and then javascript engine adds a prototype
+ property to the fuction.

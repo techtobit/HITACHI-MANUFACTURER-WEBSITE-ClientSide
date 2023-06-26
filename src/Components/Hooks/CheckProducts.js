@@ -11,7 +11,7 @@ const CheckProducts = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch(`http://localhost:5000/products/${product}`, {
+    fetch(`https://hitachi-tool.onrender.com/products/${product}`, {
       method: "GET",
       headers: {
         "authorization": `Bearer ${localStorage.getItem("accessToken")}`

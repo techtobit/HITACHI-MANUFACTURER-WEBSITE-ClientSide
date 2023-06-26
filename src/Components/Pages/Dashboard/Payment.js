@@ -24,11 +24,10 @@ const Payment = () => {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/${product}`)
+    fetch(`https://hitachi-tool.onrender.com/mycart/${product}`)
       .then(res => res.json())
       .then(data => setCart(data));
   }, [product])
-
 
   // form controle
 

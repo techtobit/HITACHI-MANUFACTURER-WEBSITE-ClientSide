@@ -18,7 +18,7 @@ const cardCopy = ({ cart }) => {
  console.log(total)
 
  useEffect(() => {
-  fetch('http://localhost:5000/create-payment-intent', {
+  fetch('https://hitachi-tool.onrender.com/create-payment-intent', {
    method: "POST",
    headers: {
     "content-type": "application/json",

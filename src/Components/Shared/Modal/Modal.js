@@ -7,7 +7,7 @@ const Modal = ({ deleteCart }) => {
   console.log(deleteCart);
 
   const handelDeleteCart = id => {
-    const url = `http://localhost:5000/${id}`
+    const url = `https://hitachi-tool.onrender.com/${id}`
     axios.delete(url, id)
       .then(response => {
         console.log(response)

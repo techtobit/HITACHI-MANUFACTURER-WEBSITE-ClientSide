@@ -4,7 +4,7 @@ import ReactReloadSpinier from '../../Animation/ReactReloadSpinier';
 import DisplayBlog from './DisplayBlog';
 
 const Blog = () => {
- const { data: blogs, isLoading } = useQuery('users', () => fetch(`http://localhost:5000/blog`).then(res => res.json()))
+ const { data: blogs, isLoading } = useQuery('users', () => fetch(`https://hitachi-tool.onrender.com/blog`).then(res => res.json()))
 
 
 

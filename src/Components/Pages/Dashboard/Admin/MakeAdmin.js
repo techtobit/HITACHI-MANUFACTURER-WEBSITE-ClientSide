@@ -17,7 +17,7 @@ const MakeAdmin = () => {
   console.log(deleteAdmin);
   const navigate = useNavigate();
 
-  // const { data: users, isLoading } = useQuery('users', () => fetch(`http://localhost:5000/user`, {
+  // const { data: users, isLoading } = useQuery('users', () => fetch(`https://hitachi-tool.onrender.com/user`, {
   //   method: "GET",
   //   headers: {
   //     authorization: `Bearer${localStorage.getItem("accessToken")}`
@@ -31,7 +31,7 @@ const MakeAdmin = () => {
 
 
   useEffect(() => {
-    fetch(`http://localhost:5000/user`, {
+    fetch(`https://hitachi-tool.onrender.com/user`, {
       method: "GET",
       headers: {
         "authorization": `Bearer ${localStorage.getItem("accessToken")}`
@@ -49,7 +49,7 @@ const MakeAdmin = () => {
   }, [navigate])
 
 
-  //  axios.get(`http://localhost:5000/user`, {
+  //  axios.get(`https://hitachi-tool.onrender.com/user`, {
   //   headers: {
   //    "authorization": `Bearer ${localStorage.getItem("accessToken")}`
   //   }
@@ -66,7 +66,7 @@ const MakeAdmin = () => {
   // }, [navigate])
 
   const handelMakeAdmin = email => {
-    fetch(`http://localhost:5000/user/admin/${email}`, {
+    fetch(`https://hitachi-tool.onrender.com/user/admin/${email}`, {
       method: "PUT",
       headers: {
         "authorization": `Bearer ${localStorage.getItem("accessToken")}`

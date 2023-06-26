@@ -9,7 +9,7 @@ const Profile = () => {
 
  const { register, handleSubmit, reset, formState: { errors } } = useForm();
  const onSubmit = data => {
-  axios.post(`http://localhost:5000/userProfile`, data)
+  axios.post(`https://hitachi-tool.onrender.com/userProfile`, data)
    .then(response => {
     console.log(response)
     toast.success(`Your Profile Updated`);

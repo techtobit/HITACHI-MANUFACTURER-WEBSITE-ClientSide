@@ -7,7 +7,7 @@ const Review = () => {
 
   const [addReview, setAddReview] = useState([]);
 
-  const url = `http://localhost:5000/addReview`
+  const url = `https://hitachi-tool.onrender.com/addReview`
   useEffect(() => {
     fetch(url)
       .then(res => res.json())

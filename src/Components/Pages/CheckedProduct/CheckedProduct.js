@@ -67,7 +67,7 @@ const CheckedProduct = () => {
 
     if (cartPrice) {
       console.log(cartPrice);
-      const url = `http://localhost:5000/`;
+      const url = `https://hitachi-tool.onrender.com/`;
       setCart(product)
       axios.post(url, product)
         .then(response => {

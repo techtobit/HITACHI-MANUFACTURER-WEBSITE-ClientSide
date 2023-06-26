@@ -9,7 +9,7 @@ const AddOrderedItems = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch(`http://localhost:5000/mycart`, {
+    fetch(`https://hitachi-tool.onrender.com/mycart`, {
       method: "GET",
       headers: {
         "authorization": `Bearer ${localStorage.getItem("accessToken")}`

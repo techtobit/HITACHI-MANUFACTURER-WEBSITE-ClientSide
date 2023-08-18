@@ -15,7 +15,7 @@ module.exports = {
           "--subHeading": "20px"
         },
       },
-      "dark",
+      "light",
       "cupcake",
     ],
   },

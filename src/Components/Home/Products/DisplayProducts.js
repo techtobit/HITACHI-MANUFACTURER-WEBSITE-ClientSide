@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { faCartArrowDown, faStar, faStarOfLife } from '@fortawesome/free-solid-svg-icons';
 import React, { useEffect, useState } from 'react';
 import './DisplayProduct.css'
 import { Link, useNavigate } from 'react-router-dom';
@@ -13,7 +13,11 @@ const DisplayProducts = ({ product }) => {
   const [user, loading] = useAuthState(auth)
   const navigate = useNavigate();
 
-  //navigate to buy products 
+  const [rating, setRating] = useState(2);
+  
+    const handleRatingChange = (newRating) => {
+      setRating(newRating);
+    };
   const handelPurchase = id => {
     if (loading) {
       return <ReactReloadSpinier></ReactReloadSpinier>
@@ -28,11 +32,21 @@ const DisplayProducts = ({ product }) => {
   }
   return (
     <div className=' ' >
-          <div style={{
-          // margin: '-10px 0px 0px 20px',
-          // zIndex: 20
-          }} className='absolute mt-[-10px] ml-[15px] z-10 uppercase text-sm bg-neutral text-accent px-2'>New</div>
+
+      <p className='tooltips absolute mt-[-10px] ml-[10px] z-10 u ppercase text-sm bg-neutral text-accent px-2'>New</p>
       <div class="card rounded-none relative  lg:w-80 h-96 md:w-fit bg-base-100 ">
+      <div className='rateing absolute ml-[65%] pt-[3px] z-10 '>
+      {[1, 2, 3, 4, 5].map((star) => (
+        <span 
+        className=''
+          key={star}
+          style={{ cursor: 'pointer', fontSize: '20px', color: star <= rating ? 'gold' : 'gray' }}
+          onClick={() => handleRatingChange(star)}
+        >
+          ★
+        </span>
+      ))}
+      </div>
 
         <div className='border-[0.5px]   relative  border-neutral hover:border-primary border-opacity:90 rounded-none'
           onMouseEnter={e => {
@@ -40,7 +54,6 @@ const DisplayProducts = ({ product }) => {
             display: 'block',
             text: 'center',
             transition: "delay: 1s",
-            // transition: '0.3s'
           });
         }}
         onMouseLeave={e => {

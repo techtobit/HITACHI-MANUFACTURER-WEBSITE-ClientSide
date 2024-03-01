@@ -27,11 +27,14 @@ const DisplayProducts = ({ product }) => {
 
   }
   return (
-    <div >
-      <div class="card rounded-none lg:w-80 h-96 md:w-fit bg-base-100 "
+    <div className=' ' >
+          <div style={{
+          // margin: '-10px 0px 0px 20px',
+          // zIndex: 20
+          }} className='absolute mt-[-10px] ml-[15px] z-10 uppercase text-sm bg-neutral text-accent px-2'>New</div>
+      <div class="card rounded-none relative  lg:w-80 h-96 md:w-fit bg-base-100 ">
 
-        >
-        <div className='border-[0.5px] relative  border-neutral hover:border-primary border-opacity:90 rounded-none'
+        <div className='border-[0.5px]   relative  border-neutral hover:border-primary border-opacity:90 rounded-none'
           onMouseEnter={e => {
           setStyle({
             display: 'block',
@@ -47,10 +50,12 @@ const DisplayProducts = ({ product }) => {
           })
         }}
         >
-        <figure className='m-5 object-cover '>
-          <img className='product-img ' src={img} alt="product" />
+        
+
+
+        <figure className='m-5 object-cover  '>
+          <img className='product-img   ' src={img} alt="product" />
           <button onClick={() => handelPurchase(_id)} class="card-actions w-[100%] h-[100%]  backdrop-opacity-10 backdrop-invert bg-white/30  absolute lg:justify-center" style={style} >
-          {/* style={style} */}
             <div class="btn  btn-primary w-[50%] text-neutral font-bold">
               <FontAwesomeIcon icon={faCartArrowDown} className='text pr-2'></FontAwesomeIcon>
               Place Oder

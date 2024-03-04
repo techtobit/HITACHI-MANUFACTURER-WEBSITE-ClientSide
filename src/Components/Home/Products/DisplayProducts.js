@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import ReactReloadSpinier from '../../Animation/ReactReloadSpinier';
+import { Oval } from 'react-loader-spinner';
 
 const DisplayProducts = ({ product }) => {
   const { _id, name, img, price, quantity } = product;
@@ -20,7 +21,17 @@ const DisplayProducts = ({ product }) => {
     };
   const handelPurchase = id => {
     if (loading) {
-      return <ReactReloadSpinier></ReactReloadSpinier>
+      // return <ReactReloadSpinier></ReactReloadSpinier>
+      return(<Oval
+        visible={true}
+        height="80"
+        width="80"
+        color="#4fa94d"
+        ariaLabel="oval-loading"
+        wrapperStyle={{}}
+        wrapperClass=""
+        />)
+      
     }
     else if (!user) {
       navigate('/login')
@@ -63,9 +74,6 @@ const DisplayProducts = ({ product }) => {
           })
         }}
         >
-        
-
-
         <figure className='m-5 object-cover  '>
           <img className='product-img   ' src={img} alt="product" />
           <button onClick={() => handelPurchase(_id)} class="card-actions w-[100%] h-[100%]  backdrop-opacity-10 backdrop-invert bg-white/30  absolute lg:justify-center" style={style} >

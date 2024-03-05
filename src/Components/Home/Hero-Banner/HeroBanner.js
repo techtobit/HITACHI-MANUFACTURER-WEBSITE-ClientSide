@@ -8,14 +8,11 @@ const HeroBanner = () => {
  return (
   <div className='hero-banner h-screen bg-[#ffb703] grid items-center align-center'
    style={{
-   backgroundImage: 'url("https://i.ibb.co/phqMLJk/hero-banner-1.png")',
-    
-   // backgroundImage: 'url("https://i.ibb.co/phqMLJk/hero-banner-1.png")',
+   backgroundImage: 'url("https://i.ibb.co/mDDWckc/hero-banner-0-2.png")',
    backgroundRepeat: 'no-repeat', backgroundPosition: 'center',
    backgroundColor: '#ffb703',
    backgroundSize: 'cover', width: '100%',
    opacity: '0.9.5'
-   // backgroundImage: 'url("https://i.ibb.co/L0X4f2L/industrial-hero-banner.jpg")',
    // backgroundColor: 'rgba(0,0,0,0.5)',
 
 

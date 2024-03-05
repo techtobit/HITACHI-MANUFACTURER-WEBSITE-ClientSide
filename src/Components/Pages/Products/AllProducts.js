@@ -6,9 +6,7 @@ import SharedDisplayProducts from '../../Shared/Products/SharedDisplayProducts';
 import ReactReloadSpinier from '../../Animation/ReactReloadSpinier';
 
 const AllProducts = () => {
-	// const [products, setProducts] = useState([])
 	const [products] = LoadProducts()
-	console.log(products);
 	const [loading, setLoading] = useState(true)
 
 	const handleReload = () => {

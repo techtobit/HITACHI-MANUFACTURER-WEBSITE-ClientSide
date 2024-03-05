@@ -3,7 +3,7 @@ import { SpinnerCircular } from 'spinners-react';
 
 const ReactReloadSpinier = () => {
  return (
-  <div className='max-w-full max-h-full grid justify-center '>
+  <div className='w-full h-screen grid justify-center items-center '>
    <SpinnerCircular />
   </div>
  );

@@ -19,11 +19,7 @@ const SharedDisplayProducts = ({ product }) => {
 	};
 
 	const handelPurchase = id => {
-		if (loading) {
-			return <ReactReloadSpinier></ReactReloadSpinier>
-
-		}
-		else if (!user) {
+		if (!user) {
 			navigate('/login')
 		}
 		else {

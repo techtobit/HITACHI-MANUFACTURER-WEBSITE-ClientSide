@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartArrowDown, faStar, faStarOfLife } from '@fortawesome/free-solid-svg-icons';
 import React, { useEffect, useState } from 'react';
-import './DisplayProduct.css'
+// import './DisplayProduct.css'
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
@@ -15,22 +15,13 @@ const DisplayProducts = ({ product }) => {
   const navigate = useNavigate();
 
   const [rating, setRating] = useState(2);
-  
-    const handleRatingChange = (newRating) => {
+  const handleRatingChange = (newRating) => {
       setRating(newRating);
     };
+
   const handelPurchase = id => {
     if (loading) {
-      // return <ReactReloadSpinier></ReactReloadSpinier>
-      return(<Oval
-        visible={true}
-        height="80"
-        width="80"
-        color="#4fa94d"
-        ariaLabel="oval-loading"
-        wrapperStyle={{}}
-        wrapperClass=""
-        />)
+      return <ReactReloadSpinier></ReactReloadSpinier>
       
     }
     else if (!user) {
@@ -43,7 +34,10 @@ const DisplayProducts = ({ product }) => {
   }
   return (
     <div className=' ' >
-
+    {
+      !_id ? (  <ReactReloadSpinier></ReactReloadSpinier>) : (
+      ''
+      )}
       <p className='tooltips absolute mt-[-10px] ml-[10px] z-10 u ppercase text-sm bg-neutral text-accent px-2'>New</p>
       <div class="card rounded-none relative  lg:w-80 h-96 md:w-fit bg-base-100 ">
       <div className='rateing absolute ml-[65%] pt-[3px] z-10 '>

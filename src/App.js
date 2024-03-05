@@ -26,6 +26,7 @@ import Blog from './Components/Pages/Blog/Blog';
 import AddProduct from './Components/Pages/Dashboard/Admin/AddProduct';
 import About from './Components/Pages/Dashboard/Admin/About';
 import ManageProducts from './Components/Pages/Dashboard/Admin/ManageProducts';
+import ProductDetails from './Components/Shared/Products/ProductDetails';
 
 
 
@@ -43,14 +44,20 @@ const App = () => {
           <RequireAuth>
             <AllProducts></AllProducts>
           </RequireAuth>
-        }> </Route>
+        }> 
+        </Route>
         <Route path='/products/:product' element={
           <RequireAuth>
-            <CheckedProduct></CheckedProduct>
+            <ProductDetails/>
           </RequireAuth>
         }>
-
         </Route>
+        <Route path='/products/cart/:product' element={
+          <RequireAuth>
+            <CheckedProduct/>
+          </RequireAuth>
+        }></Route>
+        
         <Route path='/blog' element={<Blog></Blog>}></Route>
         {/*         <Route path='/payment/:item' element={
           <AddrForPurchase></AddrForPurchase>

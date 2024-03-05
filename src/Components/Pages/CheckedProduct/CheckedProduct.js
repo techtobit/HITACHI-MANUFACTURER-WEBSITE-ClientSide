@@ -93,9 +93,9 @@ const CheckedProduct = () => {
 
   return (
 
-    <div className='bg-accent'>
+    <div className='bg-secondary'>
       {/* //product display here  */}
-      <div class="hero min-h-screen bg-accent ">
+      <div class="hero min-h-screen bg-secondary ">
         <div class="hero-content flex-col lg:flex-row ">
           <div className=' bg-accent '>
             <img src={checkProduct.img} class="max-w-sm " />
@@ -107,45 +107,57 @@ const CheckedProduct = () => {
             </div>
           </div>
           <div className='lg:px-20 '>
-            <hr />
-            <form onSubmit={handleSubmit(onSubmit)}>
               <h1 class="text-2xl font-bold pb-2">Shipping Details</h1>
-              <hr />
+            <form className=' grid grid-cols-2 gap-1' onSubmit={handleSubmit(onSubmit)}>
 
               <label class="label">
-                <span class="label-text">Name</span>
+                <span class="label-text">Name
+                <br/>
+                <input type="text" value={user?.displayName} readOnly  {...register("name", { required: true })} class="input bg-gray-200 input-bordered input-sm w-96 max-w-xs" />
+              </span>
+              
               </label>
-              <input type="text" value={user?.displayName} readOnly  {...register("name", { required: true })} class="input bg-gray-200 input-bordered input-sm w-96 max-w-xs" />
               <label class="label">
-                <span class="label-text">Email</span>
+                <span class="label-text">Email
+                <br/>
+                <input type="email" value={user?.email} readOnly {...register("email", { required: true })} class="input  bg-gray-200 input-bordered input-sm w-96 max-w-xs" />
+                </span>
               </label>
-              <input type="email" value={user?.email} readOnly {...register("email", { required: true })} class="input  bg-gray-200 input-bordered input-sm w-96 max-w-xs" />
 
               <label class="label">
-                <span class="label-text">phone number</span>
+                <span class="label-text">phone number
+                <br/>
+                <input type="number" placeholder="(+880)1xxxxxx" {...register("phone", { required: true })} class="input input-bordered input-sm w-96 max-w-xs" />
+                </span>
               </label>
-              <input type="number" placeholder="(+880)1xxxxxx" {...register("phone", { required: true })} class="input input-bordered input-sm w-96 max-w-xs" />
               <label class="label">
-                <span class="label-text">City</span>
+                <span class="label-text">City
+                <br/>
+                <input type="text" placeholder="City" {...register("city", { required: true })} class="input input-bordered input-sm w-96 max-w-xs" />
+                </span>
               </label>
-              <input type="text" placeholder="City" {...register("city", { required: true })} class="input input-bordered input-sm w-96 max-w-xs" />
               <label class="label">
-                <span class="label-text">Warehouse Address</span>
+                <span class="label-text">Warehouse Address
+                <br/>
+                <input type="text" placeholder="address" {...register("address", { required: true })} class="input input-bordered input-sm w-96 max-w-xs" />
+                </span>
               </label>
-              <input type="text" placeholder="address" {...register("address", { required: true })} class="input input-bordered input-sm w-96 max-w-xs" />
               <label class="label">
-                <span class="label-text font-bold">Order quantity</span>
+                <span class="label-text font-bold">Order quantity
+                <br/>
+                <input type="number" min="0" onKeyUp={increaseQuantity} placeholder="quantity" {...register("quantity", { required: true })} class="input input-bordered input-sm w-96 max-w-xs" />
+                </span>
               </label>
-              <input type="number" min="0" onKeyUp={increaseQuantity} placeholder="quantity" {...register("quantity", { required: true })} class="input input-bordered input-sm w-96 max-w-xs" />
               <label class="label">
-                <span class="label-text font-bold">You Pay</span>
+                <span class="label-text font-bold">You Pay
+                <br/>
+                <input type='number' value={cartPrice} readOnly {...register("total", { required: true })} class="input  bg-gray-200 input-bordered input-sm w-96 max-w-xs" />
+                </span>
               </label>
-              <input type='number' value={cartPrice} readOnly {...register("total", { required: true })} class="input  bg-gray-200 input-bordered input-sm w-96 max-w-xs" />
-
-              <div className='pt-4'>
+            </form>
+            <div className='pt-4'>
                 <button type='submit' disabled={!cartPrice && !input} class="btn btn-primary w-full">Add To Cart</button>
               </div>
-            </form>
             <div className='py-5'>
               <h3 className='text-center font-bold text-xl py-3'>Make Payment</h3>
               <Elements stripe={stripePromise}>

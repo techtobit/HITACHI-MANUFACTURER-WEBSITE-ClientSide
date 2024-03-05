@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartArrowDown, faStar, faStarOfLife } from '@fortawesome/free-solid-svg-icons';
+import { faCartArrowDown, faEye  } from '@fortawesome/free-solid-svg-icons';
 import React, { useEffect, useState } from 'react';
 import './DisplayProduct.css'
 import { Link, useNavigate } from 'react-router-dom';
@@ -65,10 +65,10 @@ const SharedDisplayProducts = ({ product }) => {
 				>
 					<figure className='m-5 object-cover  '>
 						<img className='product-img   ' src={img} alt="product" />
-						<button onClick={() => handelPurchase(_id)} class="card-actions w-[100%] h-[100%]  backdrop-opacity-10 backdrop-invert bg-white/30  absolute lg:justify-center" style={style} >
-							<div class="btn  btn-primary w-[50%] text-neutral font-bold">
-								<FontAwesomeIcon icon={faCartArrowDown} className='text pr-2'></FontAwesomeIcon>
-								Place Oder
+						<button onClick={() => handelPurchase(_id)} class="card-actions  rounded-none w-[100%] h-[100%]  backdrop-opacity-10 backdrop-invert bg-white/30  absolute lg:justify-center" style={style} >
+							<div class="btn  rounded-none  btn-primary w-[50%] text-neutral font-bold">
+								<FontAwesomeIcon icon={ faEye} className='text pr-2'></FontAwesomeIcon>
+								View Details
 							</div>
 						</button>
 					</figure>
@@ -76,10 +76,6 @@ const SharedDisplayProducts = ({ product }) => {
 				<div class="py-[0.5">
 					<h3 class="product-model">name</h3>
 					<h3 class="product-name font-bold overflow-hidden ">{name}</h3>
-					{/* <div className="card-data grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-2">
-            <div class="badge badge-primary text-neutral font-bold">Price : ${price}</div>
-            <div class="badge badge-accent text-neutral font-bold border-1 border-primary">Stock: ${quantity}</div>
-          </div> */}
 				</div>
 
 			</div>

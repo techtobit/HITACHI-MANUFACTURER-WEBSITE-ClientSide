@@ -32,7 +32,7 @@ const AddReview = ({ item }) => {
      {total}
     </td>
     <td>
-     <label for="toggle-modal" onClick={() => setAddReview(_id)} class="btn modal-button  btn-xs border-0 btn btn-xs btn-accent ">
+     <label for="toggle-modal" onClick={() => setAddReview(_id)} class="btn modal-button rounded-none  btn-xs border-0 btn btn-xs btn-accent ">
       <FontAwesomeIcon icon={faStarHalfStroke} className='pr-2'></FontAwesomeIcon>
       Add Review
      </label>

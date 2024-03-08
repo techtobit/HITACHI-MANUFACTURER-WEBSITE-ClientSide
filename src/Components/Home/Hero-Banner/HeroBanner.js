@@ -2,13 +2,16 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faRightToBracket } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+// import heroBlob from '../../Assets/hero-banner.png'
+import heroBlob from '../../Assets/hero-banner-0.jpg'
 
 const HeroBanner = () => {
 
  return (
   <div className='hero-banner h-screen bg-[#ffb703] grid items-center align-center'
    style={{
-   backgroundImage: 'url("https://i.ibb.co/mDDWckc/hero-banner-0-2.png")',
+   backgroundImage: `url(${heroBlob})`,
+//    backgroundImage: 'url("https://i.ibb.co/mDDWckc/hero-banner-0-2.png")',
    backgroundRepeat: 'no-repeat', backgroundPosition: 'center',
    backgroundColor: '#ffb703',
    backgroundSize: 'cover', width: '100%',
@@ -32,12 +35,12 @@ const HeroBanner = () => {
       we carry quality Ostromi hand tools for any job
      </p>
      <div className="main-btns flex pl-0 p-10 justify-spacebetwn">
-      <button className="explore text-primary bg-secondary font-bold w-40 h-14 rounded ">
+      <button className="explore text-primary rounded-none bg-secondary font-bold w-40 h-14 rounded ">
        Get Start
        <FontAwesomeIcon icon={faArrowRight} className='pl-2'></FontAwesomeIcon>
       </button>
       <div className="watch-btn pl-10 flex items-center justify-items-center ">
-       <button className="watch-video flex items-center  justify-items-center  ">
+       <button className="watch-video  flex items-center  justify-items-center  ">
         <div className='play-btn '>
          <FontAwesomeIcon icon={faRightToBracket} className='play-icon'></FontAwesomeIcon>
         </div>

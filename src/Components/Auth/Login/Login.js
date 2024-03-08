@@ -83,7 +83,7 @@ const Login = () => {
                 <label class="label">
                   <span class="label-text">Email</span>
                 </label>
-                <input type="email" placeholder="email" {...register("email", {
+                <input className=' ' type="email" placeholder="email" {...register("email", {
                   required: {
                     value: true,
                     message: "Email is required"
@@ -102,7 +102,7 @@ const Login = () => {
                 <label class="label">
                   <span class="label-text">Password</span>
                 </label>
-                <input type="password" placeholder="password" {...register("password", {
+                <input className='rounded-none ' type="password" placeholder="password" {...register("password", {
                   required: {
                     value: true,
                     message: "Password is required"
@@ -122,7 +122,7 @@ const Login = () => {
                   <Link to='/resetPass' class="label-text-alt link link-hover">Forgot password?</Link>
                 </label>
                 <div class="form-control mt-6">
-                  <input type='submit' value="login" class="btn btn-primary" />
+                  <input type='submit' value="login" class="btn rounded-none  btn-primary" />
                 </div>
               </form>
               {signInError}
@@ -130,7 +130,7 @@ const Login = () => {
                 <p className='label-text-alt'>Don't have an account? <Link to='/singup' class="label-text-alt link link-hover underline text-neutral font-bold text-md">Create an account</Link></p>
               </label>
               <div class="form-control mt-6">
-                <button onClick={loginWithGoogle} class="btn btn-neutral" >login With Google</button>
+                <button onClick={loginWithGoogle} class="btn rounded-none  btn-neutral" >login With Google</button>
               </div>
             </div>
           </div>

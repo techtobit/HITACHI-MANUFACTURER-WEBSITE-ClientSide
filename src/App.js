@@ -27,6 +27,7 @@ import AddProduct from './Components/Pages/Dashboard/Admin/AddProduct';
 import About from './Components/Pages/Dashboard/Admin/About';
 import ManageProducts from './Components/Pages/Dashboard/Admin/ManageProducts';
 import ProductDetails from './Components/Shared/Products/ProductDetails';
+import Views from './Components/Views';
 
 
 
@@ -36,6 +37,7 @@ const App = () => {
   return (
     <div>
       {/* <MinNavBars></MinNavBars> */}
+      {/* <Views/> */}
       <NavBars></NavBars>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>

@@ -128,7 +128,7 @@ const SingUp = () => {
          <Link to='/resetPass' class="label-text-alt link link-hover">Forgot password?</Link>
         </label>
         <div class="form-control mt-6">
-         <input type='submit' value="SingUp" class="btn btn-primary" />
+         <input type='submit' value="SingUp" class="btn btn-primary rounded-none" />
         </div>
        </form>
 
@@ -136,7 +136,7 @@ const SingUp = () => {
         <p className='label-text-alt'>Already have an account? <Link to='/login' class="label-text-alt link link-hover underline text-neutral font-bold text-md">Login your account</Link></p>
        </label>
        <div class="form-control mt-6">
-        <button onClick={loginWithGoogle} class="btn btn-neutral" >SingUp With Google</button>
+        <button onClick={loginWithGoogle} class="btn btn-neutral rounded-none" >SingUp With Google</button>
        </div>
       </div>
      </div>

@@ -156,7 +156,7 @@ const CheckedProduct = () => {
               </label>
             </form>
             <div className='pt-4'>
-                <button type='submit' disabled={!cartPrice && !input} class="btn btn-primary w-full">Add To Cart</button>
+                <button type='submit' disabled={!cartPrice && !input} class="btn btn-primary rounded-none w-full">Add To Cart</button>
               </div>
             <div className='py-5'>
               <h3 className='text-center font-bold text-xl py-3'>Make Payment</h3>

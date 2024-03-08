@@ -23,7 +23,7 @@ const Subscribe = () => {
      <div class="w-96 flex -mt-10">
       <input type="email" placeholder="email" required class="input input-bordered input-warning w-full max-w-xs" />
       <div className='pl-5'>
-       <button className='btn btn-primary '>Subscribe</button>
+       <button className='btn btn-primary rounded-none'>Subscribe</button>
       </div>
      </div>
     </div>

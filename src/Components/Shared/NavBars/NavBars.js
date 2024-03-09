@@ -17,25 +17,25 @@ const NavBars = () => {
   }
 
   const navMenu = <>
-    <li><Link to='/'>Home</Link></li>
-    <li><Link to='/products'>Products</Link></li>
-    <li><Link to='/blog'>Blog</Link></li>
+    <li><Link className='hover:rounded-none' to='/'>Home</Link></li>
+    <li><Link className='hover:rounded-none' to='/products'>Products</Link></li>
+    <li><Link className='hover:rounded-none' to='/blog'>Blog</Link></li>
   </>
   const userMenu = <>
     {
       user ?
         <div className="admin">
           <ul class="menu menu-horizontal p-0">
-            <li tabindex="0">
+            <li  tabindex="0">
               <a >
                 <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
-                <span className='overflow-hidden truncate w-20 hover:text-black'>{user.displayName}</span>
+                <span  className='overflow-hidden truncate w-20 hover:text-black'>{user.displayName}</span>
                 <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
               </a>
               <ul class="p-2 bg-base-100  z-10">
-                <li><Link to='dashboard/admin/adminProfile'>My Account</Link></li>
-                <li><Link to='/dashboard'>Dashboard</Link></li>
-                <li><Link to='/' onClick={LogOut}>LogOut
+                <li><Link className='btn-sm' to='dashboard/admin/adminProfile'>My Account</Link></li>
+                <li><Link className='btn-sm' to='/dashboard'>Dashboard</Link></li>
+                <li><Link className='btn-sm' to='/' onClick={LogOut}>LogOut
                   <FontAwesomeIcon icon={faRightFromBracket} className='text-primary px-2'></FontAwesomeIcon>
                 </Link></li>
               </ul>
@@ -43,7 +43,7 @@ const NavBars = () => {
           </ul>
         </div>
         :
-        <p><Link to='/login'>Login</Link></p>
+        <p><Link className='btn-sm' to='/login'>Login</Link></p>
     }
   </>
   return (

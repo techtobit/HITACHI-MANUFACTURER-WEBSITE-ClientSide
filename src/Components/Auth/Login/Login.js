@@ -7,6 +7,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import ReactReloadSpinier from '../../Animation/ReactReloadSpinier';
 import useToken from '../../Hooks/useToken';
+import InputField from '../../Shared/input';
 
 
 const Login = () => {
@@ -64,26 +65,22 @@ const Login = () => {
   }
 
 
-
-
-
-
   return (
     <div>
       <div class="hero min-h-screen bg-accent">
-        <div class="hero-content grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 justify-between ">
+        <div class="hero-content grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 justify-between lg:gap-[25%] ">
           <div class="text-center lg:text-left">
             <img className='w-full lg:block md:block hidden' src={LoginImg} alt="" />
           </div>
-          <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <div class="card-body">
+          <div class="card rounded-none flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+            <div class="card-body rounded-none">
               <h1 class="text-5xl font-bold">Login now!</h1>
 
               <form onSubmit={handleSubmit(onSubmit)} class="form-control">
                 <label class="label">
                   <span class="label-text">Email</span>
                 </label>
-                <input className=' ' type="email" placeholder="email" {...register("email", {
+                <input className='input rounded-none input-bordered' type="email" placeholder="email" {...register("email", {
                   required: {
                     value: true,
                     message: "Email is required"
@@ -92,7 +89,7 @@ const Login = () => {
                     value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
                     message: "Email is not Valid"
                   }
-                })} class="input input-bordered" />
+                })} />
 
                 <label label='label'>
                   {errors.email?.type === 'required' && <span className='label-text-alt text-red-600'>{errors.email.message}</span>}
@@ -102,7 +99,7 @@ const Login = () => {
                 <label class="label">
                   <span class="label-text">Password</span>
                 </label>
-                <input className='rounded-none ' type="password" placeholder="password" {...register("password", {
+                <input className='input rounded-none input-bordered' type="password" placeholder="password" {...register("password", {
                   required: {
                     value: true,
                     message: "Password is required"
@@ -112,7 +109,7 @@ const Login = () => {
                     message: "Must be 6 characters or longer"
                   },
 
-                })} class="input input-bordered" />
+                })}  />
                 <label className='label'>
                   {errors.password?.type === 'required' && <span className='label-text-alt text-red-600'>{errors.password.message}</span>}
                   {errors.password?.type === 'minLength' && <span className='label-text-alt text-red-600'>{errors.password.message}</span>}

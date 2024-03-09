@@ -58,11 +58,11 @@ const SingUp = () => {
  return (
   <div>
    <div class="hero min-h-screen bg-accent">
-    <div class="hero-content flex flex-row-reverse justify-between ">
+    <div class="hero-content flex flex-row-reverse ">
      <div class="text-center lg:text-left">
       <img className='w-full lg:block md:block hidden' src={singUp} alt="" />
      </div>
-     <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+     <div class="card rounded-none flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
       <div class="card-body">
        <h1 class="text-5xl font-bold">Create An Account</h1>
 
@@ -72,7 +72,7 @@ const SingUp = () => {
         </label>
         <input
          type="text"
-         placeholder="Full Name" className="input input-bordered w-full max-w-xs"{...register("name", {
+         placeholder="Full Name" className="input input-bordered w-full max-w-xs rounded-none"{...register("name", {
           required: {
            value: true,
            message: 'Name is Required'
@@ -86,7 +86,7 @@ const SingUp = () => {
         <label class="label">
          <span class="label-text">Email</span>
         </label>
-        <input type="email" placeholder="email" {...register("email", {
+        <input className='input input-bordered w-full max-w-xs rounded-none' type="email" placeholder="email" {...register("email", {
          required: {
           value: true,
           message: "Email is required"
@@ -95,7 +95,7 @@ const SingUp = () => {
           value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
           message: "Email is not Valid"
          }
-        })} class="input input-bordered" />
+        })}  />
 
         <label label='label'>
          {errors.email?.type === 'required' && <span className='label-text-alt text-red-600'>{errors.email.message}</span>}
@@ -105,7 +105,7 @@ const SingUp = () => {
         <label class="label">
          <span class="label-text">Password</span>
         </label>
-        <input type="password" placeholder="password" {...register("password", {
+        <input className='input input-bordered w-full max-w-xs rounded-none' type="password" placeholder="password" {...register("password", {
          required: {
           value: true,
           message: "Password is required"
@@ -115,7 +115,7 @@ const SingUp = () => {
           message: "Must be 6 characters or longer"
          },
 
-        })} class="input input-bordered" />
+        })} />
         <label className='label'>
          {errors.password?.type === 'required' && <span className='label-text-alt text-red-600'>{errors.password.message}</span>}
          {errors.password?.type === 'minLength' && <span className='label-text-alt text-red-600'>{errors.password.message}</span>}
@@ -128,7 +128,7 @@ const SingUp = () => {
          <Link to='/resetPass' class="label-text-alt link link-hover">Forgot password?</Link>
         </label>
         <div class="form-control mt-6">
-         <input type='submit' value="SingUp" class="btn btn-primary rounded-none" />
+         <input className='rounded-none' type='submit' value="SingUp" class="btn btn-primary rounded-none" />
         </div>
        </form>
 
@@ -136,7 +136,7 @@ const SingUp = () => {
         <p className='label-text-alt'>Already have an account? <Link to='/login' class="label-text-alt link link-hover underline text-neutral font-bold text-md">Login your account</Link></p>
        </label>
        <div class="form-control mt-6">
-        <button onClick={loginWithGoogle} class="btn btn-neutral rounded-none" >SingUp With Google</button>
+        <button onClick={loginWithGoogle} class="btn rounded-none btn-neutral rounded-none" >SingUp With Google</button>
        </div>
       </div>
      </div>

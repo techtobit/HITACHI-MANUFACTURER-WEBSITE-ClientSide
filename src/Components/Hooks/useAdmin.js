@@ -6,7 +6,7 @@ const useAdmin = user => {
   useEffect(() => {
     const email = user?.email;
     if (email) {
-      fetch(`https://hitachi-tool.onrender.com/admin/${email}`, {
+      fetch(`https://hitachi-server-side.vercel.app/admin/${email}`, {
         method: "GET",
         headers: {
           "authorization": `Bearer ${localStorage.getItem("accessToken")}`

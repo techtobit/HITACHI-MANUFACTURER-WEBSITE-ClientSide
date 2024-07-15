@@ -15,7 +15,7 @@ const AllProducts = () => {
 
 
 	return (
-		<div className='bg-secondary lg:p-26 md:p-20 p-10  '>
+		<div className='bg-secondary h-fit lg:p-26 md:p-20 p-10  '>
 		{
 			loading && products.length > 0 ? (
 				<div className="products grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:gap-20 gap-10 sm:gap-10 justify-center justify-items-center items-center">

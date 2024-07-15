@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 
 const Modal = ({ deleteAdmin }) => {
    const DeleteModalAdmin = email => {
-      /*    fetch(`https://hitachi-tool.onrender.com/user/admin/${id}`, {
+      /*    fetch(`https://hitachi-server-side.vercel.app/user/admin/${id}`, {
          method: "DELETE",
          headers: {
           "authorization": `Bearer ${localStorage.getItem("accessToken")}`
@@ -19,7 +19,7 @@ const Modal = ({ deleteAdmin }) => {
           }, 4000);
        })  */
 
-      const url = `https://hitachi-tool.onrender.com/user/admin/${email}`
+      const url = `https://hitachi-server-side.vercel.app/user/admin/${email}`
       axios.delete(url, email)
          .then(response => {
             console.log(response)

@@ -19,7 +19,7 @@ const CheckoutForm = ({ cart }) => {
   const { total, } = cart
 
   useEffect(() => {
-    fetch(`https://hitachi-tool.onrender.com/create-payment-intent`, {
+    fetch(`https://hitachi-server-side.vercel.app/create-payment-intent`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

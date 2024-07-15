@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 const LoadProducts = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch(`https://hitachi-tool.onrender.com/products`, {
+    fetch(`https://hitachi-server-side.vercel.app/products`, {
       method: "GET",
       headers: {
         "authorization": `Bearer ${localStorage.getItem("accessToken")}`

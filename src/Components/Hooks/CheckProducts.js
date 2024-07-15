@@ -11,7 +11,7 @@ const CheckProducts = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch(`https://hitachi-tool.onrender.com/products/${product}`, {
+    fetch(`https://hitachi-server-side.vercel.app/products/${product}`, {
       method: "GET",
       headers: {
         "authorization": `Bearer ${localStorage.getItem("accessToken")}`

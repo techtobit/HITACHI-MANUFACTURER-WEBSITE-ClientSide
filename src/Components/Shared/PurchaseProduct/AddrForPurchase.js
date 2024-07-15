@@ -10,7 +10,7 @@ const AddrForPurchase = () => {
 
  // const [addAddersCart, setAddAddresCart] = useState([]);
  // useEffect(() => {
- //  fetch(`https://hitachi-tool.onrender.com/${item}`)
+ //  fetch(`https://hitachi-server-side.vercel.app/${item}`)
  //   .then(res => res.json())
  //   .then(data => setAddAddresCart(data));
  // }, [item])

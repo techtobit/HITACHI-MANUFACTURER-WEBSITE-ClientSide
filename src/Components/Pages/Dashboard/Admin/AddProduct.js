@@ -33,7 +33,7 @@ const AddProduct = () => {
 
           console.log(product);
 
-          // axios.post(`https://hitachi-tool.onrender.com/products`, product)
+          // axios.post(`https://hitachi-server-side.vercel.app/products`, product)
           //   .then(response => {
           //     console.log(response);
           //     toast.success('New Product Successfully Add')

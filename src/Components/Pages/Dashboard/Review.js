@@ -7,7 +7,7 @@ const Review = () => {
 
   const [addReview, setAddReview] = useState([]);
 
-  const url = `https://hitachi-tool.onrender.com/addReview`
+  const url = `https://hitachi-server-side.vercel.app/addReview`
   useEffect(() => {
     fetch(url)
       .then(res => res.json())

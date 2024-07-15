@@ -67,7 +67,7 @@ const CheckedProduct = () => {
 
     if (cartPrice) {
       console.log(cartPrice);
-      const url = `https://hitachi-tool.onrender.com/`;
+      const url = `https://hitachi-server-side.vercel.app/`;
       setCart(product)
       axios.post(url, product)
         .then(response => {
@@ -95,69 +95,69 @@ const CheckedProduct = () => {
 
     <div className='bg-secondary'>
       {/* //product display here  */}
-      <div class="hero min-h-screen bg-secondary ">
+      <div class="hero min-h-screen bg-secondary px-20">
         <div class="hero-content flex-col lg:flex-row ">
-          <div className=' bg-accent '>
-            <img src={checkProduct.img} class="max-w-sm " />
-            <div className='py-5'>
-              <h1 class="text-3xl font-bold pb-2">{checkProduct.name}</h1>
-              <h3 class="text-2xl font-bold">Price : <span className='text-2xl font-bold'>${checkProduct.price}</span></h3>
-              <h4 class="text-xl  ">In Stock : <span className='text-xl '>{checkProduct.quantity}</span></h4>
-              <h3 class="text-xl ">MinOrder : <span className='text-xl '>{checkProduct.minOder}</span></h3>
+          <div className='bg-accent w-[35%] rounded-lg'>
+              <img src={checkProduct.img} class="p-4 rounded-lg" />
+            <div className='p-4 '>
+              <h1 class="text-md font-bold pb-2">{checkProduct.name}</h1>
+              <h3 class="text-md font-bold">Price : <span className='text-md font-bold'>${checkProduct.price}</span></h3>
+              <h4 class="text-md  ">In Stock : <span className='text-ml '>{checkProduct.quantity}</span></h4>
+              <h3 class="text-md ">MinOrder : <span className='text-ml '>{checkProduct.minOder}</span></h3>
             </div>
           </div>
-          <div className='lg:px-20 '>
-              <h1 class="text-2xl font-bold pb-2">Shipping Details</h1>
+          <div className='w-[60%] pl-4'>
+            <h1 class="text-2xl font-bold pb-2">Shipping Details</h1>
             <form className=' grid grid-cols-2 gap-1' onSubmit={handleSubmit(onSubmit)}>
 
               <label class="label">
                 <span class="label-text">Name
-                <br/>
-                <input type="text" value={user?.displayName} readOnly  {...register("name", { required: true })} class="input bg-gray-200 input-bordered input-sm w-96 max-w-xs" />
-              </span>
-              
+                  <br />
+                  <input type="text" value={user?.displayName} readOnly  {...register("name", { required: true })} class="input bg-gray-200 input-bordered input-sm w-96 max-w-xs" />
+                </span>
+
               </label>
               <label class="label">
                 <span class="label-text">Email
-                <br/>
-                <input type="email" value={user?.email} readOnly {...register("email", { required: true })} class="input  bg-gray-200 input-bordered input-sm w-96 max-w-xs" />
+                  <br />
+                  <input type="email" value={user?.email} readOnly {...register("email", { required: true })} class="input  bg-gray-200 input-bordered input-sm w-96 max-w-xs" />
                 </span>
               </label>
 
               <label class="label">
                 <span class="label-text">phone number
-                <br/>
-                <input type="number" placeholder="(+880)1xxxxxx" {...register("phone", { required: true })} class="input input-bordered input-sm w-96 max-w-xs" />
+                  <br />
+                  <input type="number" placeholder="(+880)1xxxxxx" {...register("phone", { required: true })} class="input input-bordered input-sm w-96 max-w-xs" />
                 </span>
               </label>
               <label class="label">
                 <span class="label-text">City
-                <br/>
-                <input type="text" placeholder="City" {...register("city", { required: true })} class="input input-bordered input-sm w-96 max-w-xs" />
+                  <br />
+                  <input type="text" placeholder="City" {...register("city", { required: true })} class="input input-bordered input-sm w-96 max-w-xs" />
                 </span>
               </label>
               <label class="label">
                 <span class="label-text">Warehouse Address
-                <br/>
-                <input type="text" placeholder="address" {...register("address", { required: true })} class="input input-bordered input-sm w-96 max-w-xs" />
+                  <br />
+                  <input type="text" placeholder="address" {...register("address", { required: true })} class="input input-bordered input-sm w-96 max-w-xs" />
                 </span>
               </label>
               <label class="label">
                 <span class="label-text font-bold">Order quantity
-                <br/>
-                <input type="number" min="0" onKeyUp={increaseQuantity} placeholder="quantity" {...register("quantity", { required: true })} class="input input-bordered input-sm w-96 max-w-xs" />
+                  <br />
+                  <input type="number" min="0" onKeyUp={increaseQuantity} placeholder="quantity" {...register("quantity", { required: true })} class="input input-bordered input-sm w-96 max-w-xs" />
                 </span>
               </label>
               <label class="label">
                 <span class="label-text font-bold">You Pay
-                <br/>
-                <input type='number' value={cartPrice} readOnly {...register("total", { required: true })} class="input  bg-gray-200 input-bordered input-sm w-96 max-w-xs" />
+                  <br />
+                  <input type='number' value={cartPrice} readOnly {...register("total", { required: true })} class="input  bg-gray-200 input-bordered input-sm w-96 max-w-xs" />
                 </span>
               </label>
             </form>
             <div className='pt-4'>
-                <button type='submit' disabled={!cartPrice && !input} class="btn btn-primary rounded-none w-full">Add To Cart</button>
-              </div>
+              <button type='submit' disabled={!cartPrice && !input} class="btn btn-primary rounded-none w-full">Add To Cart</button>
+            </div>
             <div className='py-5'>
               <h3 className='text-center font-bold text-xl py-3'>Make Payment</h3>
               <Elements stripe={stripePromise}>

@@ -24,7 +24,7 @@ const Payment = () => {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    fetch(`https://hitachi-tool.onrender.com/mycart/${product}`)
+    fetch(`https://hitachi-server-side.vercel.app/mycart/${product}`)
       .then(res => res.json())
       .then(data => setCart(data));
   }, [product])

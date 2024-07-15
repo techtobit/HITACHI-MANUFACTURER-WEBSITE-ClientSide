@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 const ManageProductModal = ({ deleteProduct }) => {
 
  const handelDeleteCart = id => {
-  const url = `https://hitachi-tool.onrender.com/products/${id}`
+  const url = `https://hitachi-server-side.vercel.app/products/${id}`
   axios.delete(url, id)
    .then(response => {
     console.log(response)

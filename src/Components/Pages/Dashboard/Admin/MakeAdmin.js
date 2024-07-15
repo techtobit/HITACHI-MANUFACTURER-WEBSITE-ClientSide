@@ -17,7 +17,7 @@ const MakeAdmin = () => {
   console.log(deleteAdmin);
   const navigate = useNavigate();
 
-  // const { data: users, isLoading } = useQuery('users', () => fetch(`https://hitachi-tool.onrender.com/user`, {
+  // const { data: users, isLoading } = useQuery('users', () => fetch(`https://hitachi-server-side.vercel.app/user`, {
   //   method: "GET",
   //   headers: {
   //     authorization: `Bearer${localStorage.getItem("accessToken")}`
@@ -31,7 +31,7 @@ const MakeAdmin = () => {
 
 
   useEffect(() => {
-    fetch(`https://hitachi-tool.onrender.com/user`, {
+    fetch(`https://hitachi-server-side.vercel.app/user`, {
       method: "GET",
       headers: {
         "authorization": `Bearer ${localStorage.getItem("accessToken")}`
@@ -49,7 +49,7 @@ const MakeAdmin = () => {
   }, [navigate])
 
 
-  //  axios.get(`https://hitachi-tool.onrender.com/user`, {
+  //  axios.get(`https://hitachi-server-side.vercel.app/user`, {
   //   headers: {
   //    "authorization": `Bearer ${localStorage.getItem("accessToken")}`
   //   }
@@ -66,7 +66,7 @@ const MakeAdmin = () => {
   // }, [navigate])
 
   const handelMakeAdmin = email => {
-    fetch(`https://hitachi-tool.onrender.com/user/admin/${email}`, {
+    fetch(`https://hitachi-server-side.vercel.app/user/admin/${email}`, {
       method: "PUT",
       headers: {
         "authorization": `Bearer ${localStorage.getItem("accessToken")}`

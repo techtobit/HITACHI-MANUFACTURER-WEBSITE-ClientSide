@@ -9,7 +9,7 @@ const AddOrderedItems = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch(`https://hitachi-tool.onrender.com/mycart`, {
+    fetch(`https://hitachi-server-side.vercel.app/mycart`, {
       method: "GET",
       headers: {
         "authorization": `Bearer ${localStorage.getItem("accessToken")}`

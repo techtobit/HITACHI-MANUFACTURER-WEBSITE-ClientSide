@@ -12,7 +12,7 @@ const AddReviewModal = ({ item }) => {
 
   const [user] = useAuthState(auth)
   const reviewName = user?.displayName;
-  // const { item: product, isLoading } = useQuery('users', () => fetch(`https://hitachi-tool.onrender.com/products/${item._id}`).then(res => res.json()))
+  // const { item: product, isLoading } = useQuery('users', () => fetch(`https://hitachi-server-side.vercel.app/products/${item._id}`).then(res => res.json()))
   // console.log( item);
   // if (isLoading) {
   //   return <ReactReloadSpinier></ReactReloadSpinier>
@@ -32,7 +32,7 @@ const AddReviewModal = ({ item }) => {
 
     console.log(myReview);
 
-    axios.post(`https://hitachi-tool.onrender.com/userReview`, myReview)
+    axios.post(`https://hitachi-server-side.vercel.app/userReview`, myReview)
       .then(response => {
         console.log(response)
         toast.success(`Dear ${reviewName}.Thanks For your Review`);

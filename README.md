@@ -12,7 +12,7 @@
 
 - Live Site [Firebase](https://manufacturer-website-2bcf1.web.app/)
 - Live Site [Vercel](https://hitachi-manufacturer-website-client-side.vercel.app/)
-- Server site [Railway](https://hitachi-tool.onrender.com/products)
+- Server site [Railway](https://hitachi-server-side.vercel.app/products)
 
 ## This Full-Stack web site developed with 
 - `Html`

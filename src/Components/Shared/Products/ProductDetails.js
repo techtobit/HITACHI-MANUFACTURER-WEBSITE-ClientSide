@@ -26,7 +26,7 @@ const ProductDetails = () => {
   const star= true;
   
   return (
-    <div className='product-details grid grid-cols-2 justify-center justify-items-center items-center'>
+    <div className=' h-screen grid grid-cols-2 justify-center justify-items-center items-center'>
       <div className='product-image w-96 h-96 border-[0.5px]  border-neutral'>
         <ReactImageMagnify {...{
           smallImage: {
@@ -55,7 +55,8 @@ const ProductDetails = () => {
         <h6 class="">Model</h6>
         <h1 class="text-xl font-bold ">{checkProduct.name}</h1>
         <h6 class="">Price : <span className=''>${checkProduct.price}</span></h6>
-        <div className='rateing '>
+        <div className='rateing pb-2'>
+        Total Rateing
 						<span
 							className=''
 							style={{ cursor: 'pointer', fontSize: '20px', color: star ? 'gold' : 'gray' }}

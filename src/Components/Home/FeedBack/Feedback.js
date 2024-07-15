@@ -8,7 +8,7 @@ const Feedback = () => {
 
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch(`https://hitachi-tool.onrender.com/userReview`)
+    fetch(`https://hitachi-server-side.vercel.app/userReview`)
       .then(res => res.json())
       .then(data => setReviews(data))
   }, [])

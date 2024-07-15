@@ -71,7 +71,7 @@ const App = () => {
         }>
           <Route index element={<Orders></Orders>}></Route>
           <Route path='review' element={<Review></Review>}></Route>
-          <Route path='profile' element={<Profile></Profile>}></Route>
+          {/* <Route path='profile' element={<Profile></Profile>}></Route> */}
           <Route path='payment/:product' element={<Payment></Payment>}></Route>
 
           <Route path='admin' element={
@@ -79,11 +79,11 @@ const App = () => {
               <Admin></Admin>
             </RequireAdmin>
           }>
-            <Route index element={<About></About>}></Route>
-            <Route path='makeAdmin' element={<MakeAdmin></MakeAdmin>}></Route>
+            {/* <Route index element={<About></About>}></Route> */}
+            <Route index element={<MakeAdmin></MakeAdmin>}></Route>
             <Route path='addProduct' element={<AddProduct></AddProduct>}></Route>
             <Route path='userOrders' element={<ManageAllOrders></ManageAllOrders>}></Route>
-            <Route path='manage' element={<ManageProducts></ManageProducts>}></Route>
+            {/* <Route path='manage' element={<ManageProducts></ManageProducts>}></Route> */}
             {/* <Route path='addProduct' element={<AddOrderedItems></AddOrderedItems>}></Route> */}
           </Route>
         </Route>
